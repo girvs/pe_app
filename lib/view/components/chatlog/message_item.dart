@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:bubble/bubble.dart';
 import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bubble/bubble_widget.dart';
 
 class Message {
   String text;
@@ -65,6 +67,14 @@ class _MessageItemState extends State<MessageItem> {
             verticalDirection: VerticalDirection.up,
             //crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
+              // BubbleWidget(
+              //           255.0,
+              //           60,
+              //           Color.fromRGBO(160, 231, 90, 1),
+              //           BubbleArrowDirection.right,
+              //           child: Text('你好，我是萌新 BubbleWidget！',
+              //               style: TextStyle(
+              //                   color: Colors.white, fontSize: 16.0),),),
               FLBubble(
                   from: FLBubbleFrom.right,
                   backgroundColor: Color.fromRGBO(160, 231, 90, 1),
@@ -73,17 +83,13 @@ class _MessageItemState extends State<MessageItem> {
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                     child: Text(message.text, style: textStyle, softWrap: true),
                   )),
-              FLAvatar(
-                image: Image.asset(
-                  widget.selfImageUrl,
-                  scale: 2,
-                  fit: BoxFit.fill,
-                  width: 50,
-                  height: 50,
-                ),
-                width: 50,
-                height: 50,
-                radius: 5, // if not specify, will be width / 2
+              FLImage(
+                borderRadius: BorderRadius.circular(5),
+                image: AssetImage(widget.selfImageUrl),
+                width: 45,
+                height: 45,
+                fit: BoxFit.fill,
+                //onPressed: (){},
               ),
               SizedBox(
                 width: 12,
@@ -98,17 +104,13 @@ class _MessageItemState extends State<MessageItem> {
               SizedBox(
                 width: 12,
               ),
-              FLAvatar(
-                image: Image.asset(
-                  widget.someImageUrl,
-                  scale: 2,
-                  fit: BoxFit.fill,
-                  width: 50,
-                  height: 50,
-                ),
-                width: 50,
-                height: 50,
-                radius: 5, // if not specify, will be width / 2
+              FLImage(
+                borderRadius: BorderRadius.circular(5),
+                image: AssetImage(widget.someImageUrl),
+                width: 45,
+                height: 45,
+                fit: BoxFit.fill,
+                //onPressed: (){},
               ),
               FLBubble(
                   from: FLBubbleFrom.left,

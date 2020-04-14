@@ -1,3 +1,4 @@
+import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pe_app/core/route/routes.dart';
@@ -24,19 +25,44 @@ class _HallIndexPageState extends State<HallIndexPage> {
           floating: true,
           title: _buildSearchList(),
         ),
-        SliverToBoxAdapter(
-          child: _buildSwiper(),
-        ),
-        SliverGrid(
-          delegate:
-              SliverChildBuilderDelegate(_buildListCardItem, childCount: 20),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
+        // SliverToBoxAdapter(
+        //   child: _buildSwiper(),
+        // // ),
+        // SliverGrid(
+        //   delegate:
+        //       SliverChildBuilderDelegate(_buildListCardItem, childCount: 20),
+        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //     crossAxisCount: 2,
+        //     mainAxisSpacing: 10.0,
+        //     crossAxisSpacing: 10.0,
+        //   ),
+        // ),
+        //SliverList(delegate: SliverChildListDelegate(_buildSwiper())),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, int index) {
+              return ListTile(
+                leading: FLImage(
+                  width: 120,
+                  height: 120,
+                  borderRadius: BorderRadius.circular(10),
+                  image: AssetImage("assets/girl/1.jpg"),
+                  fit:BoxFit.fill
+                ),
+              );
+              Container postPiece;
+
+              postPiece = Container(
+                child: Text(
+                  '$index, bbbbbbbbbbbbb',
+                  style: TextStyle(color: Colors.black),
+                ),
+              );
+              return postPiece;
+            },
+            childCount: 100,
           ),
         ),
-        //SliverList(delegate: SliverChildListDelegate(_buildSwiper())),
       ],
     );
   }

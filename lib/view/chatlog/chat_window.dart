@@ -46,6 +46,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
         centerTitle: true,
         //backgroundColor: Colors.black38,
       ),
+      //backgroundColor: Colors.red,
       body: new Column(
         children: <Widget>[
           new Flexible(
@@ -59,6 +60,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
             ),
           ),
           _buildButtom(),
+          _buildActionPanel(),
+          SizedBox(height: 10,)
         ],
       ),
     );
@@ -98,7 +101,9 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
             //verticalDirection: VerticalDirection.up,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(width: 5,),
+              SizedBox(
+                width: 5,
+              ),
               Expanded(
                 child: TextFormField(
                   keyboardType: TextInputType.text,
@@ -108,8 +113,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
                   decoration: InputDecoration(
                     hintText: '请输入消息',
                     contentPadding: EdgeInsets.fromLTRB(15.0, -5.0, 5.0, -5.0),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
                   ),
                 ),
               ),
@@ -128,11 +132,6 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
               ),
             ],
           ),
-          SizedBox(height: 8,),
-          isShowPanel
-              ? Divider(height: 5,)
-              : Container(),
-          _buildActionPanel()
         ],
       ),
     );

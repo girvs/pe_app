@@ -24,8 +24,8 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
                   width: 50,
                   height: 50,
                 ),
-                width: 30,
-                height: 30,
+                width: 45,
+                height: 45,
                 radius: 50, // if not specify, will be width / 2
               ),
               hidden: false,
@@ -37,14 +37,14 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
           pinned: true,
           title: Text('消息'),
           centerTitle: true,
-          // flexibleSpace: Container(
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(colors: [
-          //       Color(0xFF0018EB),
-          //       Color(0xFF01C1D9),
-          //     ], begin: Alignment.centerLeft, end: Alignment.centerRight),
-          //   ),
-          // ),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color(0xFF0018EB),
+                Color(0xFF01C1D9),
+              ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+            ),
+          ),
           actions: <Widget>[
             Icon(Icons.search),
           ],
@@ -101,34 +101,42 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
 
   ListTile _buildRow(String sender, String text, String headerImageUrl) {
     return ListTile(
-      onTap: _nextWindowPage,
-      selected: false,
-      leading: Container(
-        width: 48,
-        height: 48,
-        padding: EdgeInsets.all(0),
-        decoration: BoxDecoration(
-          border: new Border.all(width: 1.0, color: Colors.black38),
-          borderRadius: BorderRadius.circular(5.0),
+        onTap: _nextWindowPage,
+        selected: false,
+        leading: FLBadge(
+          child: FLImage(
+            borderRadius: BorderRadius.circular(5),
+            image: AssetImage('assets/girl/1.jpg'),
+            width: 45,
+            height: 45,
+            fit: BoxFit.fill,
+            //onPressed: (){},
+          ),
+          position: FLBadgePosition.bottomRight,
+          color: Colors.greenAccent,
         ),
-        child: Image.asset(
-          'assets/images/welcome.png',
-          width: 45.0,
-          height: 45.0,
-          fit: BoxFit.fill,
+        title: Text(
+          "王衡",
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
-      ),
-      title: RichText(
-        text: TextSpan(text: "张三", style: TextStyle(fontSize: 14), children: [
-          TextSpan(text: "(离线)", style: TextStyle(fontSize: 10)),
-        ]),
-        textDirection: TextDirection.ltr,
-      ),
-      subtitle: Text("[2条]早上好啊，好久不见了！"),
-      trailing: Text(DateTime.now().hour.toString() +
-          ":" +
-          DateTime.now().minute.toString()),
-    );
+        subtitle: Text("[2条]早上好啊，好久不见了！"),
+        trailing: Column(
+          verticalDirection: VerticalDirection.down,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              DateTime.now().hour.toString() +
+                  ":" +
+                  DateTime.now().minute.toString(),
+              style: TextStyle(fontSize: 12),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Icon(Icons.notifications, size: 16)
+          ],
+        ));
   }
 
   _nextWindowPage() {
