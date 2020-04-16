@@ -1,14 +1,17 @@
 import 'package:flui/flui.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:pe_app/core/route/routes.dart';
+import 'package:pe_app/view/components/hall/sticky_bar_delegate.dart';
 
 class HallIndexPage extends StatefulWidget {
   @override
   _HallIndexPageState createState() => _HallIndexPageState();
 }
 
-class _HallIndexPageState extends State<HallIndexPage> {
+class _HallIndexPageState extends State<HallIndexPage>
+    with SingleTickerProviderStateMixin {
   List _imageUrl = [
     'https://dimg04.c-ctrip.com/images/zg0o180000014yl20DEA4.jpg',
     'https://dimg04.c-ctrip.com/images/zg0f180000014vrut370F.jpg',
@@ -18,53 +21,81 @@ class _HallIndexPageState extends State<HallIndexPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      shrinkWrap: false,
       slivers: <Widget>[
         SliverAppBar(
           pinned: true,
-          floating: true,
+          elevation: 0,
           title: _buildSearchList(),
         ),
-        // SliverToBoxAdapter(
-        //   child: _buildSwiper(),
-        // // ),
-        // SliverGrid(
-        //   delegate:
-        //       SliverChildBuilderDelegate(_buildListCardItem, childCount: 20),
-        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //     crossAxisCount: 2,
-        //     mainAxisSpacing: 10.0,
-        //     crossAxisSpacing: 10.0,
-        //   ),
-        // ),
-        //SliverList(delegate: SliverChildListDelegate(_buildSwiper())),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, int index) {
-              return ListTile(
-                leading: FLImage(
-                  width: 120,
-                  height: 120,
-                  borderRadius: BorderRadius.circular(10),
-                  image: AssetImage("assets/girl/1.jpg"),
-                  fit:BoxFit.fill
-                ),
-              );
-              Container postPiece;
+        SliverToBoxAdapter(
+          child: _buildSwiper(),
+        ),
 
-              postPiece = Container(
-                child: Text(
-                  '$index, bbbbbbbbbbbbb',
-                  style: TextStyle(color: Colors.black),
-                ),
-              );
-              return postPiece;
-            },
-            childCount: 100,
+        SliverPersistentHeader(
+          pinned: true,
+          delegate: StickyBarDelegate(
+            minHeight: 50.0,
+            maxHeight: 50.0,
+            child: Container(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              height: 60,
+              child: _buildCatalog(),
+            ),
+          ),
+        ),
+        SliverGrid(
+          delegate:
+              SliverChildBuilderDelegate(_buildListCardItem, childCount: 20),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
           ),
         ),
       ],
     );
+  }
+
+  Map<String, Text> map = {
+    '全部': Text('全部'),
+    '最新': Text('最新'),
+    '最热': Text('最热'),
+    '好评': Text('好评')
+  };
+  String _fruit = '全部';
+
+  Widget _buildCatalog() => CupertinoSegmentedControl(
+        children: map, // 数据
+        groupValue: _fruit, // 选中的数据
+        onValueChanged: (fruit) {
+          setState(() {
+            // 数据改变时通过setState改变选中状态
+            _fruit = fruit;
+          });
+        },
+        unselectedColor: CupertinoColors.white, // 未选中颜色
+        selectedColor: CupertinoColors.activeBlue, // 选中颜色
+        borderColor: CupertinoColors.activeBlue, // 边框颜色
+        pressedColor: const Color(0x33007AFF), // 点击时候的颜色
+      );
+
+  List<String> dataList = ["全部", "最新", "最热", "好评"];
+  int _value = 0;
+  List<Widget> _buildCatalogList() {
+    return List<Widget>.generate(
+      dataList.length,
+      (int index) {
+        return ChoiceChip(
+          label: Text(dataList[index]),
+          selected: _value == index,
+          onSelected: (bool selected) {
+            setState(() {
+              _value = selected ? index : null;
+            });
+          },
+        );
+      },
+    ).toList();
   }
 
   Widget _buildSearchList() {
@@ -79,7 +110,7 @@ class _HallIndexPageState extends State<HallIndexPage> {
           prefixIcon: Icon(Icons.search),
           hintText: '大厅搜索',
           contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(1.0)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
         ),
       ),
     );

@@ -11,15 +11,15 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
   List<Message> messages = [
     Message("还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？", false, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
-    Message("还没有起来了没有了？", false, DateTime.now()),
+    Message("还没有起来了没有了？", true, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
     Message(
-        "还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？还没有起来了没有了？",
+        "还没有起来了没有了？还没有起来了没有了？还没来了没有还没有起来了没有了？还没有起来了没有了？",
         true,
         DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
-    Message("还没有起来了没有了？", false, DateTime.now()),
+    Message("还没有起来了没有了？", true, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
   ];
 

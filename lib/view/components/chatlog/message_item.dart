@@ -1,9 +1,6 @@
 import 'dart:async';
-
-import 'package:bubble/bubble.dart';
 import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bubble/bubble_widget.dart';
 
 class Message {
   String text;
