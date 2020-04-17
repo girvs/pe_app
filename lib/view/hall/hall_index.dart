@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flui/flui.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
@@ -24,6 +27,7 @@ class _HallIndexPageState extends State<HallIndexPage>
       slivers: <Widget>[
         SliverAppBar(
           pinned: true,
+          floating: true,
           elevation: 0,
           title: _buildSearchList(),
         ),
@@ -37,7 +41,7 @@ class _HallIndexPageState extends State<HallIndexPage>
             maxHeight: 50.0,
             child: Container(
                 //padding: EdgeInsets.only(left: 10),
-                color: Theme.of(context).scaffoldBackgroundColor,
+                color: Theme.of(context).backgroundColor,
                 height: 60,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +56,7 @@ class _HallIndexPageState extends State<HallIndexPage>
               crossAxisCount: 2,
               mainAxisSpacing: 10.0,
               crossAxisSpacing: 10.0,
-              childAspectRatio: 1.1),
+              childAspectRatio: 1.65),
         ),
       ],
     );
@@ -90,12 +94,14 @@ class _HallIndexPageState extends State<HallIndexPage>
         margin: EdgeInsets.only(left: 10),
         child: ChoiceChip(
           //padding: EdgeInsets.only(left: 20),
-          labelPadding: EdgeInsets.only(left: 10, right: 10),
+          labelPadding: EdgeInsets.only(left: 15, right: 15),
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          elevation: 100,
+          //elevation: 100,
           //avatarBorder: const CircleBorder(side: BorderSide.(11, 11)),
           label: Text(dataList[index]),
+          selectedColor: Colors.black,
           selected: _value == index,
+
           onSelected: (bool selected) {
             setState(() {
               print(index);
@@ -160,38 +166,87 @@ class _HallIndexPageState extends State<HallIndexPage>
   }
 
   Widget _buildListCardItem(BuildContext context, int index) {
-    return Container(
-      padding: EdgeInsets.all(0),
-      //height: 180,
-      decoration: new BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-        border:
-            new Border.all(width: 1, color: Color.fromARGB(255, 225, 225, 225)),
-      ),
-      child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Image.asset(
-            index % 2 > 0 ? 'assets/girl/1.jpg' : 'assets/girl/2.jpg',
-            fit: BoxFit.fill,
-            height: (MediaQuery.of(context).size.width / 2 - 5) / 16 * 9,
-            width: MediaQuery.of(context).size.width / 2 - 5,
-          ),
-          // SizedBox(
-          //   height: 2,
-          // ),
-
-          
-          ListTile(
-            isThreeLine: true,
-            //contentPadding: EdgeInsets.all(0),
-            title: Text("静静的等待", overflow: TextOverflow.ellipsis),
-            subtitle: Text("超级无级美少女战士！",
-                maxLines: 1, overflow: TextOverflow.ellipsis),
-            trailing: Icon(Icons.attach_money),
-          ),
-        ],
+    return InkWell(
+      onTap: (){
+        Routes.router.navigateTo(
+          context,
+          Routes.hallAnchorDetailsPage,
+          transition: TransitionType.inFromRight,
+        );
+      },
+      child: Card(
+        //elevation: 20.0,
+        child: Stack(
+          children: <Widget>[
+            Image.asset(
+              Random().nextInt(3) % 2 > 0
+                  ? 'assets/girl/1.jpg'
+                  : 'assets/girl/2.jpg',
+              height: (MediaQuery.of(context).size.width / 2 - 5) / 16 * 9,
+              width: MediaQuery.of(context).size.width / 2 - 5,
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 5,
+              left: 10,
+              child: Text(
+                "22人关注",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 5,
+              right: 10,
+              child: Text(
+                "5￥/分",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
+  // Widget _buildListCardItem(BuildContext context, int index) {
+  //   return Container(
+  //     padding: EdgeInsets.all(0),
+  //     //height: 180,
+  //     decoration: new BoxDecoration(
+  //       borderRadius: BorderRadius.all(Radius.circular(0.0)),
+  //       border:
+  //           new Border.all(width: 1, color: Color.fromARGB(255, 225, 225, 225)),
+  //     ),
+  //     child: Column(
+  //       // crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: <Widget>[
+  //         Image.asset(
+  //           index % 2 > 0 ? 'assets/girl/1.jpg' : 'assets/girl/2.jpg',
+  //           fit: BoxFit.fill,
+  //           height: (MediaQuery.of(context).size.width / 2 - 5) / 16 * 9,
+  //           width: MediaQuery.of(context).size.width / 2 - 5,
+  //         ),
+  //         // SizedBox(
+  //         //   height: 2,
+  //         // ),
+
+  //         ListTile(
+  //           isThreeLine: true,
+  //           //contentPadding: EdgeInsets.all(0),
+  //           title: Text("静静的等待", overflow: TextOverflow.ellipsis),
+  //           subtitle: Text("超级无级美少女战士！",
+  //               maxLines: 1, overflow: TextOverflow.ellipsis),
+  //           trailing: Icon(Icons.attach_money),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

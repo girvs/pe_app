@@ -60,7 +60,7 @@ ThemeData _buildDarkTheme() {
 }
 
 ThemeData _buildLightTheme() {
-  const Color primaryColor = Color(0xFFF5F5F5);
+  const Color primaryColor = Color(0xFFFDFDFD);
   Color secondaryColor = Color(0xFF095093);
   final ColorScheme colorScheme = const ColorScheme.light().copyWith(
     primary: primaryColor,
