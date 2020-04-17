@@ -14,40 +14,40 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
     return CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
-          leading: Center(
-            child: FLBadge(
-              child: FLAvatar(
-                image: Image.asset(
-                  'assets/images/welcome.png',
-                  scale: 2,
-                  fit: BoxFit.fill,
-                  width: 50,
-                  height: 50,
-                ),
-                width: 45,
-                height: 45,
-                radius: 50, // if not specify, will be width / 2
-              ),
-              hidden: false,
-              position: FLBadgePosition.bottomRight, // default is topRight
-              shape: FLBadgeShape.circle,
-              color: Colors.grey,
-            ),
-          ),
+          // leading: Center(
+          //   child: FLBadge(
+          //     child: FLAvatar(
+          //       image: Image.asset(
+          //         'assets/images/welcome.png',
+          //         scale: 2,
+          //         fit: BoxFit.fill,
+          //         width: 50,
+          //         height: 50,
+          //       ),
+          //       width: 45,
+          //       height: 45,
+          //       radius: 50, // if not specify, will be width / 2
+          //     ),
+          //     hidden: false,
+          //     position: FLBadgePosition.bottomRight, // default is topRight
+          //     shape: FLBadgeShape.circle,
+          //     color: Colors.grey,
+          //   ),
+          // ),
           pinned: true,
           title: Text('消息'),
           centerTitle: true,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color(0xFF0018EB),
-                Color(0xFF01C1D9),
-              ], begin: Alignment.centerLeft, end: Alignment.centerRight),
-            ),
-          ),
-          actions: <Widget>[
-            Icon(Icons.search),
-          ],
+          // flexibleSpace: Container(
+          //   decoration: BoxDecoration(
+          //     gradient: LinearGradient(colors: [
+          //       Color(0xFF0018EB),
+          //       Color(0xFF01C1D9),
+          //     ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+          //   ),
+          // ),
+          // actions: <Widget>[
+          //   Icon(Icons.search),
+          // ],
         ),
         SliverList(
           delegate: SliverChildListDelegate(_buildChatList()),
@@ -85,7 +85,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       decoration: BoxDecoration(
         //border: Border.all(width: 0.5, color: Colors.black12),
-        color: Theme.of(context).primaryColor,
+        //color: Theme.of(context).primaryColor,
       ),
       child: OutlineButton.icon(
         color: Theme.of(context).textSelectionColor,

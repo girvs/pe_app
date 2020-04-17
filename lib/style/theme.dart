@@ -13,7 +13,7 @@ TextTheme _buildTextTheme(TextTheme base) {
 }
 
 ThemeData _buildDarkTheme() {
-  const Color primaryColor = Color(0xFF34355D);
+  const Color primaryColor = Color(0xFF141414);
   const Color secondaryColor = Color(0xFF5F58A0);
   final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
     primary: primaryColor,

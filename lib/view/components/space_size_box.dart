@@ -14,7 +14,7 @@ class SpaceSizeBox extends StatelessWidget {
       height: height,
       width: width,
       decoration: new BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).primaryColor,
         border: new Border.all(width: 0.1, color: Colors.black38),
       ),
     );

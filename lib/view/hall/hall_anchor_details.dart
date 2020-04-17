@@ -1,9 +1,6 @@
-import 'package:flui/flui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pe_app/view/components/hall/SliverCustomHeaderDelegate.dart';
-import 'package:pe_app/view/components/hall/cell.dart';
-import 'package:pe_app/view/components/icon_word_button.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
 class HallAnchorDetailsPage extends StatefulWidget {
@@ -42,7 +39,7 @@ class FilmContent extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.only(top:10,left: 10,bottom: 10),
           child: Row(
             children: <Widget>[
               Text(
@@ -56,7 +53,7 @@ class FilmContent extends StatelessWidget {
                   color: Colors.pink,
                 ),
                 label: Text(
-                  "2245人关注",
+                  "2245人",
                   style: TextStyle(fontSize: 12),
                 ),
                 onPressed: null,
@@ -82,7 +79,7 @@ class FilmContent extends StatelessWidget {
                     color: Colors.green,
                   ),
                   label: Text(
-                    "5￥/分钟",
+                    "5￥/Min",
                     style: TextStyle(fontSize: 14),
                   ),
                   onPressed: null,

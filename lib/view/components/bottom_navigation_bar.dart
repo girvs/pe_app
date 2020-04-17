@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../chatlog/chat_log_index.dart';
@@ -31,11 +32,12 @@ class _BottomNavigationBarDefaultState
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.transparent,
       type: BottomNavigationBarType.fixed,
       // backgroundColor: Colors.white70,
       selectedItemColor: Colors.blueAccent,
       unselectedItemColor: Colors.black,
-      iconSize: 32,
+      iconSize: 24,
       currentIndex: currentTab,
       onTap: (int numTab) {
         currentTab = numTab;
@@ -44,7 +46,7 @@ class _BottomNavigationBarDefaultState
       items: <BottomNavigationBarItem>[
         new BottomNavigationBarItem(
             //numTab 1
-            icon: new Icon(Icons.chat),
+            icon: new Icon(CupertinoIcons.conversation_bubble),
             title: new Text("聊天")),
         new BottomNavigationBarItem(
             //numTab 2
@@ -52,8 +54,8 @@ class _BottomNavigationBarDefaultState
             title: new Text("大厅")),
         new BottomNavigationBarItem(
             //numTab 2
-            icon: new Icon(Icons.perm_identity),
-            title: new Text("我"))
+            icon: new Icon(CupertinoIcons.person),
+            title: new Text("我的"))
       ],
     );
   }
