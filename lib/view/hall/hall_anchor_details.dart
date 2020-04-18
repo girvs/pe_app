@@ -180,6 +180,44 @@ class FilmContent extends StatelessWidget {
           height: 20,
           margin: EdgeInsets.only(bottom: 10, top: 20),
         ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(top: 2, bottom: 2),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                child: Text("照片"),
+                margin: EdgeInsets.all(10),
+              ),
+              Image.network(
+                  "http://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg",
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.fill),
+              Image.network(
+                  "http://5b0988e595225.cdn.sohucs.com/images/20181003/0f8307fe3de6468d8b51c53b276e9e1b.jpeg",
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.fill),
+              Image.network(
+                  "http://up.svwsy.com/uploads/allimg/aebiauqrqdb.jpg",
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.fill),
+              Image.network(
+                  "http://ztd00.photos.bdimg.com/ztd/w=700;q=50/sign=eefb9ac172899e51788e3814729ca80e/3b87e950352ac65ccb392f4ff2f2b21193138aca.jpg",
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.fill),
+            ],
+          ),
+        ),
+        SpaceSizeBox(
+          height: 20,
+          margin: EdgeInsets.only(bottom: 10, top: 10),
+        ),
         InkWell(
           child: Container(
             width: MediaQuery.of(context).size.width,
