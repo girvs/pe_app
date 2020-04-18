@@ -7,6 +7,8 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double paddingTop;
   final String coverImgUrl;
   final String title;
+  final IconButton leftBtn;
+  final IconButton rightBtn;
   String statusBarMode = 'dark';
 
   SliverCustomHeaderDelegate({
@@ -15,6 +17,8 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     this.paddingTop,
     this.coverImgUrl,
     this.title,
+    this.leftBtn,
+    this.rightBtn,
   });
 
   @override
@@ -104,14 +108,13 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: this
-                              .makeStickyHeaderTextColor(shrinkOffset, true),
-                        ),
-                        onPressed: () => Navigator.pop(context),
-                      ),
+                      this.leftBtn != null ? this.leftBtn : SizedBox(),
+                      // IconButton(
+                      //   icon: Icon(
+                      //     Icons.arrow_back_ios,
+                      //   ),
+                      //   onPressed: () => Navigator.pop(context),
+                      // ),
                       Text(
                         this.title,
                         style: TextStyle(
@@ -121,14 +124,15 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                               .makeStickyHeaderTextColor(shrinkOffset, false),
                         ),
                       ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.share,
-                          color: this
-                              .makeStickyHeaderTextColor(shrinkOffset, true),
-                        ),
-                        onPressed: () {},
-                      ),
+                      this.rightBtn != null ? this.rightBtn : SizedBox(),
+                      // IconButton(
+                      //   icon: Icon(
+                      //     Icons.share,
+                      //     color: this
+                      //         .makeStickyHeaderTextColor(shrinkOffset, true),
+                      //   ),
+                      //   onPressed: () {},
+                      // ),
                     ],
                   ),
                 ),

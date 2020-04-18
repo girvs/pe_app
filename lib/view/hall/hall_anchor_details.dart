@@ -17,12 +17,19 @@ class _HallAnchorDetailsPageState extends State<HallAnchorDetailsPage> {
           SliverPersistentHeader(
             pinned: true,
             delegate: SliverCustomHeaderDelegate(
-                title: '宝贝很乖',
-                collapsedHeight: 60,
-                expandedHeight: MediaQuery.of(context).size.width / 16 * 9,
-                paddingTop: MediaQuery.of(context).padding.top,
-                coverImgUrl:
-                    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587113164699&di=2d15b0c37d8433adc48277cb53d9fce1&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201802%2F24%2F20180224130717_J5knA.jpeg'),
+              title: '宝贝很乖',
+              collapsedHeight: 60,
+              expandedHeight: MediaQuery.of(context).size.width / 16 * 9,
+              paddingTop: MediaQuery.of(context).padding.top,
+              coverImgUrl:
+                  'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587113164699&di=2d15b0c37d8433adc48277cb53d9fce1&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201802%2F24%2F20180224130717_J5knA.jpeg',
+              leftBtn: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                ),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
           ),
           SliverToBoxAdapter(
             child: FilmContent(),
@@ -39,7 +46,7 @@ class FilmContent extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(top:10,left: 10,bottom: 10),
+          padding: EdgeInsets.only(top: 10, left: 10, bottom: 10),
           child: Row(
             children: <Widget>[
               Text(

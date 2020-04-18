@@ -14,8 +14,8 @@ void main() {
   runApp(
     new MaterialApp(
       themeMode: Util.themeMode,
-      theme: kLightTheme,
-      darkTheme: kDarkTheme,
+      theme: Constants.lightTheme,
+      darkTheme: Constants.darkTheme,
       debugShowCheckedModeBanner: true, //
       title: AppConfig.appTitle,
       //home: FLToast.showLoading(text:"正在加载中..."),
