@@ -82,11 +82,11 @@ class FilmContent extends StatelessWidget {
                 child: FlatButton.icon(
                   icon: Icon(
                     Icons.attach_money,
-                    size: 22,
+                    size: 0,
                     color: Colors.green,
                   ),
                   label: Text(
-                    "5￥/Min",
+                    "5￥/分钟",
                     style: TextStyle(fontSize: 14),
                   ),
                   onPressed: null,
@@ -170,7 +170,7 @@ class FilmContent extends StatelessWidget {
           padding: EdgeInsets.only(left: 20, top: 10),
           alignment: Alignment.centerLeft,
           child: Text(
-            "跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞的最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年，都给你。",
+            "    跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞的最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年，都给你。",
             style: TextStyle(
               fontSize: 14,
             ),
@@ -237,7 +237,7 @@ class FilmContent extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 2, bottom: 2),
+            padding: EdgeInsets.only(top: 2, bottom: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -247,7 +247,11 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(),
+        Divider(height: 1,),
+        Container(
+          color: Theme.of(context).appBarTheme.color,
+          height: 200,
+        )
       ],
     );
   }

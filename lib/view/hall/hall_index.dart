@@ -40,8 +40,9 @@ class _HallIndexPageState extends State<HallIndexPage>
             minHeight: 50.0,
             maxHeight: 50.0,
             child: Container(
+                padding: EdgeInsets.only(top: 10, bottom: 10),
                 //padding: EdgeInsets.only(left: 10),
-                color: Theme.of(context).backgroundColor,
+                color: Theme.of(context).appBarTheme.color,
                 height: 60,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -62,28 +63,28 @@ class _HallIndexPageState extends State<HallIndexPage>
     );
   }
 
-  Map<String, Text> map = {
-    '全部': Text('全部'),
-    '最新': Text('最新'),
-    '最热': Text('最热'),
-    '好评': Text('好评')
-  };
-  String _fruit = '全部';
+  // Map<String, Text> map = {
+  //   '全部': Text('全部'),
+  //   '最新': Text('最新'),
+  //   '最热': Text('最热'),
+  //   '好评': Text('好评')
+  // };
+  // String _fruit = '全部';
 
-  Widget _buildCatalog() => CupertinoSegmentedControl(
-        children: map, // 数据
-        groupValue: _fruit, // 选中的数据
-        onValueChanged: (fruit) {
-          setState(() {
-            // 数据改变时通过setState改变选中状态
-            _fruit = fruit;
-          });
-        },
-        unselectedColor: CupertinoColors.white, // 未选中颜色
-        selectedColor: CupertinoColors.activeBlue, // 选中颜色
-        borderColor: CupertinoColors.activeBlue, // 边框颜色
-        pressedColor: const Color(0x33007AFF), // 点击时候的颜色
-      );
+  // Widget _buildCatalog() => CupertinoSegmentedControl(
+  //       children: map, // 数据
+  //       groupValue: _fruit, // 选中的数据
+  //       onValueChanged: (fruit) {
+  //         setState(() {
+  //           // 数据改变时通过setState改变选中状态
+  //           _fruit = fruit;
+  //         });
+  //       },
+  //       unselectedColor: CupertinoColors.white, // 未选中颜色
+  //       selectedColor: CupertinoColors.activeBlue, // 选中颜色
+  //       borderColor: CupertinoColors.activeBlue, // 边框颜色
+  //       pressedColor: const Color(0x33007AFF), // 点击时候的颜色
+  //     );
 
   List<String> dataList = ["全部", "最新", "最热", "好评"];
   int _value = 0;
@@ -95,11 +96,11 @@ class _HallIndexPageState extends State<HallIndexPage>
         child: ChoiceChip(
           //padding: EdgeInsets.only(left: 20),
           labelPadding: EdgeInsets.only(left: 15, right: 15),
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           //elevation: 100,
           //avatarBorder: const CircleBorder(side: BorderSide.(11, 11)),
           label: Text(dataList[index]),
-          selectedColor: Colors.black,
+          selectedColor: Theme.of(context).buttonColor,
           selected: _value == index,
 
           onSelected: (bool selected) {
@@ -167,7 +168,7 @@ class _HallIndexPageState extends State<HallIndexPage>
 
   Widget _buildListCardItem(BuildContext context, int index) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Routes.router.navigateTo(
           context,
           Routes.hallAnchorDetailsPage,

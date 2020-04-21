@@ -1,50 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Constants{
-  //Colors for theme
-  static Color lightPrimary = Color(0xfff0f0f0);
-  static Color darkPrimary = Colors.black;
-  static Color lightAccent = Colors.blue;
-  static Color darkAccent = Colors.blueAccent;
-  static Color lightBG = Color(0xfff0f0f0);
-  static Color darkBG = Colors.black;
-  static Color badgeColor = Colors.red;
-
+class Constants {
   static ThemeData lightTheme = ThemeData(
-    backgroundColor: lightBG,
-    primaryColor: lightPrimary,
-    accentColor:  lightAccent,
-    cursorColor: lightAccent,
-    scaffoldBackgroundColor: lightBG,
+    primaryColor: Color(0xfff0f0f0),
+    scaffoldBackgroundColor: Color(0xfff9f9f9),
+    backgroundColor: Color(0xfff9f9f9),
+    bottomAppBarColor: Color(0xfff0f0f0),
     appBarTheme: AppBarTheme(
-      elevation: 0,
-      textTheme: TextTheme(
-        title: TextStyle(
-          color: darkBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
+      color: Color(0xfff0f0f0),
     ),
   );
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    backgroundColor: darkBG,
-    primaryColor: darkPrimary,
-    accentColor: darkAccent,
-    scaffoldBackgroundColor: darkBG,
-    cursorColor: darkAccent,
+    scaffoldBackgroundColor: Color(0xff191919),
+    backgroundColor: Color(0xff191919),
+    bottomAppBarColor: Color(0xff0c0c0c),
     appBarTheme: AppBarTheme(
-      elevation: 0,
-      textTheme: TextTheme(
-        title: TextStyle(
-          color: lightBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
+      color: Color(0xff0c0c0c),
     ),
   );
+
+  static Color getContainerColor(bool isDarkMode) {
+    return isDarkMode ? Color(0xff0f0f0f) : Colors.white;
+  }
 }

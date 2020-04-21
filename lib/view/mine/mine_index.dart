@@ -144,7 +144,7 @@ Widget build(BuildContext context) {
                   color: Color(0xffEDEDED),
                   height: 10.0,
                 ),
-                buildRow('static/images/me_pay.png', '支付', true),
+                buildRow('static/images/me_pay.png', '余额', true),
               ],
             ),
             Container(

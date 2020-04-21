@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pe_app/view/components/chatlog/message_item.dart';
+import 'package:pe_app/view/components/custom_container.dart';
 import 'package:pe_app/view/components/icon_word_button.dart';
 
 class ChatWindowPage extends StatefulWidget {
@@ -61,7 +62,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
           ),
           _buildButtom(),
           _buildActionPanel(),
-          SizedBox(height: 10,)
+          //SizedBox(height: 10,)
         ],
       ),
     );
@@ -91,9 +92,9 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
   Widget _buildButtom() {
     return Container(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 0.0, left: 0.0),
-      decoration: BoxDecoration(
-        border: Border.all(width: 0.5, color: Colors.black12),
-      ),
+      // decoration: BoxDecoration(
+      //   border: Border.all(width: 0.5, color: Colors.black12),
+      // ),
       child: Column(
         children: <Widget>[
           Row(
@@ -148,7 +149,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
             ),
           )
         : Container(
-            margin: EdgeInsets.only(bottom: 8),
+            //margin: EdgeInsets.only(bottom: 8),
           );
   }
 

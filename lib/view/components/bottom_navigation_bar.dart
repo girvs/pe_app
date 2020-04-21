@@ -32,11 +32,11 @@ class _BottomNavigationBarDefaultState
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.transparent,
-      type: BottomNavigationBarType.fixed,
+      //backgroundColor: Colors.transparent,
+      //type: BottomNavigationBarType.fixed,
       // backgroundColor: Colors.white70,
-      selectedItemColor: Colors.blueAccent,
-      unselectedItemColor: Colors.black,
+      //selectedItemColor: Colors.blueAccent,
+      //unselectedItemColor: Colors.black,
       iconSize: 24,
       currentIndex: currentTab,
       onTap: (int numTab) {

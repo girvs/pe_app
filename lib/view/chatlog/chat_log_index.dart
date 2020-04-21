@@ -84,6 +84,8 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       decoration: BoxDecoration(
+      color: Theme.of(context).appBarTheme.color,
+
         //border: Border.all(width: 0.5, color: Colors.black12),
         //color: Theme.of(context).primaryColor,
       ),
@@ -103,6 +105,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
     return ListTile(
         onTap: _nextWindowPage,
         selected: false,
+        dense: true,
         leading: FLBadge(
           child: FLImage(
             borderRadius: BorderRadius.circular(5),
@@ -116,7 +119,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
           color: Colors.greenAccent,
         ),
         title: Text(
-          "王衡",
+          "王府井",
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
         subtitle: Text("[2条]早上好啊，好久不见了！"),

@@ -10,11 +10,14 @@ class SpaceSizeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       margin: margin,
       height: height,
       width: width,
       decoration: new BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).appBarTheme.color,
+        //color: Color.fromARGB(100, 55, 55, 55),
+        //color: Colors.white,
         border: new Border.all(width: 0.1, color: Colors.black38),
       ),
     );
