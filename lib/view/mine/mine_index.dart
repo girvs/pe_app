@@ -90,14 +90,20 @@ class _MineIndexPageState extends State<MineIndexPage> {
                 ),
               ),
             ),
+            Divider(height: 1),
             Container(
               child: Column(
                 children: <Widget>[
                   SizedBox(
                     height: 15,
                   ),
+                  Divider(height: 1),
                   SyCell(
-                    icon: Icon(AntDesign.pay_circle_o1),
+                    icon: Icon(
+                      AntDesign.pay_circle_o1,
+                      size: 20,
+                      color: Color.fromARGB(255, 255,215,0),
+                    ),
                     title: "余额",
                     endIcon: Icon(
                       CupertinoIcons.right_chevron,
@@ -105,14 +111,21 @@ class _MineIndexPageState extends State<MineIndexPage> {
                     ),
                     isShowLine: true,
                     onTap: () {
-                      Routes.router.navigateTo(context, Routes.mineIndexBalance,clearStack: false,transition: TransitionType.cupertino);
+                      Routes.router.navigateTo(context, Routes.mineIndexBalance,
+                          clearStack: false,
+                          transition: TransitionType.cupertino);
                     },
                   ),
                   SizedBox(
                     height: 15,
                   ),
+                  Divider(height: 1),
                   SyCell(
-                    icon: Icon(Icons.picture_in_picture_alt),
+                    icon: Icon(
+                      AntDesign.picture,
+                      size: 20,
+                      color: Color.fromARGB(255, 64,224,208),
+                    ),
                     title: "我的相册",
                     endIcon: Icon(
                       CupertinoIcons.right_chevron,
@@ -123,7 +136,11 @@ class _MineIndexPageState extends State<MineIndexPage> {
                   ),
                   //SizedBox(height: 15,),
                   SyCell(
-                    icon: Icon(CupertinoIcons.video_camera),
+                    icon: Icon(
+                      AntDesign.videocamera,
+                      size: 20,
+                      color: Color.fromARGB(255, 135,206,235),
+                    ),
                     title: "视频设置",
                     endIcon: Icon(
                       CupertinoIcons.right_chevron,

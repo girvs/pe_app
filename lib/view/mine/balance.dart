@@ -23,10 +23,10 @@ class _BalancePageState extends State<BalancePage> {
         children: <Widget>[
           Container(
             color: Theme.of(context).appBarTheme.color,
-            padding: EdgeInsets.only(left: 30, top: 10, bottom: 10),
+            padding: EdgeInsets.only(left: 30, top: 10, bottom: 0),
             child: Text(
               "余额(元)",
-              style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+              style: TextStyle(fontSize: 15, color: Colors.grey[500]),
             ),
           ),
           Container(
@@ -34,11 +34,12 @@ class _BalancePageState extends State<BalancePage> {
             padding: EdgeInsets.only(left: 30, top: 10, bottom: 20),
             child: Text(
               "0.00",
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 40,fontWeight: FontWeight.w400),
             ),
           ),
+          Divider(height: 1),
           SyCell(
-            icon: Icon(FontAwesome.sign_in),
+            icon: Icon(FontAwesome.sign_in,size: 20,color: Colors.blue[600],),
             title: "充值",
             endIcon: Icon(
               CupertinoIcons.right_chevron,
@@ -51,7 +52,7 @@ class _BalancePageState extends State<BalancePage> {
             },
           ),
           SyCell(
-            icon: Icon(FontAwesome.sign_out),
+            icon: Icon(FontAwesome.sign_out,size: 20,color: Colors.yellow[800],),
             title: "提现",
             endIcon: Icon(
               CupertinoIcons.right_chevron,
@@ -66,8 +67,9 @@ class _BalancePageState extends State<BalancePage> {
           SizedBox(
             height: 10,
           ),
+          Divider(height: 1),
           SyCell(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.list,size: 20,),
             title: "明细",
             endIcon: Icon(
               CupertinoIcons.right_chevron,

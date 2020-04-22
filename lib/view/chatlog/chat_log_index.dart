@@ -121,7 +121,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
       context,
       Routes.chatWindowPage,
       clearStack: false,
-      transition: TransitionType.inFromRight,
+      transition: TransitionType.cupertino,
     );
   }
 }
