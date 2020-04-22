@@ -14,7 +14,9 @@ import 'package:pe_app/view/chatlog/chat_window.dart';
 import 'package:pe_app/view/hall/hall_anchor_details.dart';
 import 'package:pe_app/view/hall/hall_index.dart';
 import 'package:pe_app/view/home_main.dart';
+import 'package:pe_app/view/mine/balance.dart';
 import 'package:pe_app/view/mine/mine_index.dart';
+import 'package:pe_app/view/mine/recharge.dart';
 import 'package:pe_app/view/welcome.dart';
 
 // var loginHandler = new Handler(
@@ -61,6 +63,17 @@ var mineindexPageHandler = new Handler(
   return MineIndexPage();
 });
 
+var mineIndexBalancePageHandler = new Handler(
+  handlerFunc: (BuildContext context,Map<String,List<String>> params){
+    return BalancePage();
+  }
+);
+
+var mineIndexRechargePageHandler = new Handler(
+  handlerFunc: (BuildContext context,Map<String,List<String>> params){
+    return RechargePage();
+  }
+);
 // var informationDetailHandler = new Handler(
 //     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
 //   var id = params['id']?.first;

@@ -124,7 +124,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                               .makeStickyHeaderTextColor(shrinkOffset, false),
                         ),
                       ),
-                      this.rightBtn != null ? this.rightBtn : SizedBox(),
+                      this.rightBtn != null ? this.rightBtn : SizedBox(width: 2,),
                       // IconButton(
                       //   icon: Icon(
                       //     Icons.share,

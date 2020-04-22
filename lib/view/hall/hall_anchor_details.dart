@@ -47,6 +47,7 @@ class FilmContent extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(top: 10, left: 10, bottom: 10),
+          color: Theme.of(context).primaryColor,
           child: Row(
             children: <Widget>[
               Text(
@@ -97,78 +98,79 @@ class FilmContent extends StatelessWidget {
         ),
         SpaceSizeBox(
           width: MediaQuery.of(context).size.width,
-          height: 0,
-          margin: EdgeInsets.only(top: 0, bottom: 12),
+          height: 1,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(left: 15),
-              padding: EdgeInsets.only(left: 10, right: 10),
-              alignment: Alignment(0, 0),
-              height: 20,
-              decoration: new BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                border: new Border.all(width: 1, color: Colors.blue),
+        Container(
+          padding: EdgeInsets.only(top: 15, bottom: 15, left: 15),
+          color: Theme.of(context).primaryColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                alignment: Alignment(0, 0),
+                height: 20,
+                decoration: new BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  border: new Border.all(width: 1, color: Colors.blue),
+                ),
+                child: Text(
+                  "年龄：22岁",
+                  style: TextStyle(fontSize: 10, color: Colors.white),
+                ),
               ),
-              child: Text(
-                "年龄：22岁",
-                style: TextStyle(fontSize: 10, color: Colors.white),
+              Container(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                margin: EdgeInsets.only(
+                  left: 10,
+                ),
+                alignment: Alignment(0, 0),
+                height: 20,
+                decoration: new BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  border: new Border.all(width: 1, color: Colors.blue),
+                ),
+                child: Text(
+                  "性别：女",
+                  style: TextStyle(fontSize: 10, color: Colors.white),
+                ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              margin: EdgeInsets.only(
-                left: 10,
+              Container(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                margin: EdgeInsets.only(
+                  left: 10,
+                ),
+                alignment: Alignment(0, 0),
+                height: 20,
+                width: 120,
+                decoration: new BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  border: new Border.all(width: 1, color: Colors.blue),
+                ),
+                child: Text(
+                  "地区：湖南省长沙市",
+                  style: TextStyle(fontSize: 10, color: Colors.white),
+                ),
               ),
-              alignment: Alignment(0, 0),
-              height: 20,
-              decoration: new BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                border: new Border.all(width: 1, color: Colors.blue),
-              ),
-              child: Text(
-                "性别：女",
-                style: TextStyle(fontSize: 10, color: Colors.white),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              margin: EdgeInsets.only(
-                left: 10,
-              ),
-              alignment: Alignment(0, 0),
-              height: 20,
-              width: 120,
-              decoration: new BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                border: new Border.all(width: 1, color: Colors.blue),
-              ),
-              child: Text(
-                "地区：湖南省长沙市",
-                style: TextStyle(fontSize: 10, color: Colors.white),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 20,
+            ],
+          ),
         ),
         Container(
           padding: EdgeInsets.only(left: 20, top: 0),
           alignment: Alignment.centerLeft,
+          color: Theme.of(context).primaryColor,
           child: Text(
-            "简历",
+            "简介",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
           ),
         ),
         Container(
-          padding: EdgeInsets.only(left: 20, top: 10),
+          padding: EdgeInsets.only(left: 20, top: 10, bottom: 15),
           alignment: Alignment.centerLeft,
+          color: Theme.of(context).primaryColor,
           child: Text(
             "    跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞的最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年，都给你。",
             style: TextStyle(
@@ -178,12 +180,12 @@ class FilmContent extends StatelessWidget {
         ),
         SpaceSizeBox(
           height: 20,
-          margin: EdgeInsets.only(bottom: 10, top: 20),
         ),
         Container(
+          color: Theme.of(context).primaryColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
-          padding: EdgeInsets.only(top: 2, bottom: 2),
+          padding: EdgeInsets.only(top: 10, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -216,13 +218,13 @@ class FilmContent extends StatelessWidget {
         ),
         SpaceSizeBox(
           height: 20,
-          margin: EdgeInsets.only(bottom: 10, top: 10),
         ),
         InkWell(
           child: Container(
+            color: Theme.of(context).primaryColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 2, bottom: 2),
+            padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -232,12 +234,13 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(),
+        Divider(height: 0,),
         InkWell(
           child: Container(
+            color: Theme.of(context).primaryColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 2, bottom: 10),
+            padding: EdgeInsets.only(top: 10, bottom: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -247,11 +250,7 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(height: 1,),
-        Container(
-          color: Theme.of(context).appBarTheme.color,
-          height: 200,
-        )
+        Divider(),
       ],
     );
   }

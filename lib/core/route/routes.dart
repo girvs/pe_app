@@ -17,6 +17,8 @@ class Routes {
   static String hallAnchorDetailsPage = '/hall/hallAnchorDetailsPage';
 
   static String mineindex = '/mine/index';
+  static String mineIndexBalance = '/mine/balance';
+  static String mineIndexRecharge = '/mine/balance/recharge';
 
 //  static String courseDetail = "/course/detail/:id/:saletype/:coursename";
 
@@ -38,6 +40,9 @@ class Routes {
         handler: hallHallAnchorDetailsPageHandler);
 
     router.define(mineindex, handler: mineindexPageHandler);
+    router.define(mineIndexBalance, handler: mineIndexBalancePageHandler);
+    router.define(mineIndexRecharge, handler: mineIndexRechargePageHandler);
+
     Routes.router = router;
   }
 }

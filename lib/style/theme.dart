@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class Constants {
   static ThemeData lightTheme = ThemeData(
-    primaryColor: Color(0xfff0f0f0),
-    scaffoldBackgroundColor: Color(0xfff9f9f9),
-    backgroundColor: Color(0xfff9f9f9),
+    primaryColor: Color(0xfff9f9f9),
+    scaffoldBackgroundColor: Color(0xfff0f0f0),//0xfff9f9f9
+    backgroundColor: Color(0xfff0f0f0),
     bottomAppBarColor: Color(0xfff0f0f0),
     appBarTheme: AppBarTheme(
       color: Color(0xfff0f0f0),

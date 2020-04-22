@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pe_app/view/components/chatlog/message_item.dart';
-import 'package:pe_app/view/components/custom_container.dart';
 import 'package:pe_app/view/components/icon_word_button.dart';
 
 class ChatWindowPage extends StatefulWidget {

@@ -22,11 +22,11 @@ class SyCell extends StatelessWidget {
     return new InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.only(left:15.0,right: 15.0,top: 10,bottom: 10),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.primaryColor,
           border: isShowLine
-              ? Border(bottom: BorderSide(color: theme.dividerColor))
+              ? Border(bottom: BorderSide(color: theme.dividerColor,width: 0.5))
               : null,
         ),
         child: Row(
@@ -39,12 +39,18 @@ class SyCell extends StatelessWidget {
                   )
                 : Container(),
             Expanded(
-              child: Text(
-                title,
+              child: Container(
+                padding: EdgeInsets.only(left:15),
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 14),
+                ),
               ),
             ),
             Text(endText),
-            SizedBox(width: 10,),
+            SizedBox(
+              width: 10,
+            ),
             onTap == null ? Container() : endIcon
           ],
         ),
