@@ -20,6 +20,7 @@ class Routes {
   static String mineIndexBalance = '/mine/balance';
   static String mineIndexRecharge = '/mine/balance/recharge';
   static String mineIndexCashWithdrawal = '/mine/balance/cashWithdrawal';
+  static String mineIndexDetailList = '/mine/balance/detaillist';
 
 //  static String courseDetail = "/course/detail/:id/:saletype/:coursename";
 
@@ -44,6 +45,7 @@ class Routes {
     router.define(mineIndexBalance, handler: mineIndexBalancePageHandler);
     router.define(mineIndexRecharge, handler: mineIndexRechargePageHandler);
     router.define(mineIndexCashWithdrawal, handler: mineIndexCashWithdrawalPageHandler);
+    router.define(mineIndexDetailList, handler: mineIndexDetailListPageHandler);
     Routes.router = router;
   }
 }
