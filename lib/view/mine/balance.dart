@@ -59,7 +59,7 @@ class _BalancePageState extends State<BalancePage> {
             ),
             isShowLine: true,
             onTap: () {
-              Routes.router.navigateTo(context, Routes.mineIndexBalance,
+              Routes.router.navigateTo(context, Routes.mineIndexCashWithdrawal,
                   clearStack: false, transition: TransitionType.cupertino);
             },
           ),
