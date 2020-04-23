@@ -172,7 +172,7 @@ class _HallIndexPageState extends State<HallIndexPage>
         Routes.router.navigateTo(
           context,
           Routes.hallAnchorDetailsPage,
-          transition: TransitionType.inFromRight,
+          transition: TransitionType.cupertino,
         );
       },
       child: Card(

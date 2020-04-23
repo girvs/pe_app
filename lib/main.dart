@@ -16,7 +16,7 @@ void main() {
       themeMode: Util.themeMode,
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
-      debugShowCheckedModeBanner: true, //
+      debugShowCheckedModeBanner: false, //
       title: AppConfig.appTitle,
       //home: FLToast.showLoading(text:"正在加载中..."),
       onGenerateRoute: Routes.router.generator,

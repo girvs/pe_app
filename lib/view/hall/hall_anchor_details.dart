@@ -250,7 +250,7 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(),
+        Divider(height: 1,),
       ],
     );
   }

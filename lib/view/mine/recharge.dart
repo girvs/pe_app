@@ -27,7 +27,7 @@ class _RechargePageState extends State<RechargePage> {
       body: ListView(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 30, bottom: 20),
+            padding: EdgeInsets.only(left: 30, bottom: 20,top:20),
             color: Theme.of(context).appBarTheme.color,
             child: Row(
               children: <Widget>[
@@ -44,32 +44,25 @@ class _RechargePageState extends State<RechargePage> {
                   radius: 50, // if not specify, will be width / 2
                 ),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       padding: EdgeInsets.only(left: 18),
                       child: Text(
                         "alibaba",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+                            fontSize: 22, fontWeight: FontWeight.w600),
                       ),
                     ),
                     SizedBox(
                       height: 2,
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 6),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Icon(
-                            AntDesign.pay_circle1,
-                            size: 12,
-                          ),
-                          Text(
-                            "：0.00",
-                            style: TextStyle(fontSize: 10),
-                          ),
-                        ],
+                      padding: EdgeInsets.only(left: 18),
+                      child: Text(
+                        "账户余额：0.00",
+                        style: TextStyle(fontSize: 13),
                       ),
                     )
                   ],
@@ -77,9 +70,10 @@ class _RechargePageState extends State<RechargePage> {
               ],
             ),
           ),
+          Divider(height: 1),
           Container(
             color: Theme.of(context).primaryColor,
-            padding: EdgeInsets.only(top: 10, bottom: 0, left: 20),
+            padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择充值数量"),
           ),
           Container(
@@ -143,12 +137,12 @@ class _RechargePageState extends State<RechargePage> {
           SpaceSizeBox(height: 10),
           Container(
             color: Theme.of(context).primaryColor,
-            padding: EdgeInsets.only(top: 10, bottom: 0, left: 20),
+            padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择支付方式"),
           ),
           Container(
             color: Theme.of(context).primaryColor,
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(top: 18, bottom: 18),
             child: Column(
               children: <Widget>[
                 Divider(
@@ -160,7 +154,7 @@ class _RechargePageState extends State<RechargePage> {
                     FontAwesome.wechat,
                     color: Colors.green,
                   ),
-                  title: "微信支付",
+                  title: "微信",
                   endIcon: Icon(
                     Icons.check_circle_outline,
                     size: 16,
@@ -180,7 +174,7 @@ class _RechargePageState extends State<RechargePage> {
                     AntDesign.alipay_square,
                     color: Colors.blue,
                   ),
-                  title: "微信支付",
+                  title: "支付宝",
                   endIcon: Icon(
                     Icons.check_circle_outline,
                     size: 16,
@@ -199,7 +193,7 @@ class _RechargePageState extends State<RechargePage> {
                   alignment: Alignment.centerLeft,
                   child: RichText(
                     text: TextSpan(
-                      text: '应付',
+                      text: '应付 ',
                       style: TextStyle(
                           fontSize: 12.0,
                           color: Theme.of(context).textTheme.title.color),
@@ -208,7 +202,7 @@ class _RechargePageState extends State<RechargePage> {
                             text: payList[selectIndex].toString(),
                             style: TextStyle(color: selectColor, fontSize: 18)),
                         TextSpan(
-                          text: '元',
+                          text: ' 元',
                         ),
                       ],
                     ),
@@ -217,11 +211,14 @@ class _RechargePageState extends State<RechargePage> {
               ],
             ),
           ),
+          Divider(
+            height: 1,
+          )
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: isDark ? Colors.white : selectColor,
+          color: isDark ? Theme.of(context).primaryColor : selectColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment(0, 0),
           height: 50,
