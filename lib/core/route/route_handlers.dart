@@ -15,7 +15,6 @@ import 'package:pe_app/view/hall/hall_anchor_details.dart';
 import 'package:pe_app/view/hall/hall_index.dart';
 import 'package:pe_app/view/home_main.dart';
 import 'package:pe_app/view/mine/balance.dart';
-import 'package:pe_app/view/mine/cash_withdrawal.dart';
 import 'package:pe_app/view/mine/mine_index.dart';
 import 'package:pe_app/view/mine/recharge.dart';
 import 'package:pe_app/view/welcome.dart';
@@ -73,12 +72,6 @@ var mineIndexBalancePageHandler = new Handler(
 var mineIndexRechargePageHandler = new Handler(
   handlerFunc: (BuildContext context,Map<String,List<String>> params){
     return RechargePage();
-  }
-);
-
-var mineIndexCashWithdrawalPageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return CashWithdrawalPage();
   }
 );
 // var informationDetailHandler = new Handler(
