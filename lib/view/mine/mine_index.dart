@@ -102,7 +102,7 @@ class _MineIndexPageState extends State<MineIndexPage> {
                     icon: Icon(
                       AntDesign.pay_circle_o1,
                       size: 20,
-                      color: Color.fromARGB(255, 255,215,0),
+                      color: Color.fromARGB(255, 255, 215, 0),
                     ),
                     title: "余额",
                     endIcon: Icon(
@@ -124,7 +124,7 @@ class _MineIndexPageState extends State<MineIndexPage> {
                     icon: Icon(
                       AntDesign.picture,
                       size: 20,
-                      color: Color.fromARGB(255, 64,224,208),
+                      color: Color.fromARGB(255, 64, 224, 208),
                     ),
                     title: "我的相册",
                     endIcon: Icon(
@@ -139,7 +139,7 @@ class _MineIndexPageState extends State<MineIndexPage> {
                     icon: Icon(
                       AntDesign.videocamera,
                       size: 20,
-                      color: Color.fromARGB(255, 135,206,235),
+                      color: Color.fromARGB(255, 135, 206, 235),
                     ),
                     title: "视频设置",
                     endIcon: Icon(
@@ -147,7 +147,12 @@ class _MineIndexPageState extends State<MineIndexPage> {
                       size: 20,
                     ),
                     isShowLine: true,
-                    onTap: () {},
+                    onTap: () {
+                      Routes.router.navigateTo(
+                          context, Routes.mineIndexVideoSetting,
+                          clearStack: false,
+                          transition: TransitionType.cupertino);
+                    },
                   ),
                 ],
               ),

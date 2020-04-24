@@ -19,6 +19,7 @@ import 'package:pe_app/view/mine/cash_withdrawal.dart';
 import 'package:pe_app/view/mine/detail_list.dart';
 import 'package:pe_app/view/mine/mine_index.dart';
 import 'package:pe_app/view/mine/recharge.dart';
+import 'package:pe_app/view/mine/video_setting.dart';
 import 'package:pe_app/view/welcome.dart';
 
 // var loginHandler = new Handler(
@@ -86,6 +87,12 @@ var mineIndexCashWithdrawalPageHandler = new Handler(
 var mineIndexDetailListPageHandler = new Handler(
   handlerFunc: (BuildContext context,Map<String,List<String>> params){
     return DetailListPage();
+  }
+);
+
+var mineIndexVideoSettingPageHandler = new Handler(
+  handlerFunc: (BuildContext context,Map<String,List<String>> params){
+    return VideoSettingPage();
   }
 );
 // var informationDetailHandler = new Handler(

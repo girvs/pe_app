@@ -27,8 +27,10 @@ class _DetailListPageState extends State<DetailListPage> {
         title: Text('明细'),
         centerTitle: true,
         elevation: 0,
+        
       ),
       body: CustomScrollView(
+        
         slivers: _buildSlivers(),
       ),
     );
@@ -44,18 +46,21 @@ class _DetailListPageState extends State<DetailListPage> {
               ? Color.fromRGBO(246, 246, 246, 1)
               : themeData.cardColor,
           height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                  '${date.year.toString()}-${date.month.toString().padLeft(2, '0')}月份'),
-              Column(
-                children: <Widget>[
-                  Text("本月充值 ￥ 2222.00"),
-                  Text("本月消费 ￥ 1290.00"),
-                ],
-              ),
-            ],
+          child: Container(
+            padding: EdgeInsets.only(left: 15, right: 15, top: 3, bottom: 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                    '${date.year.toString()}-${date.month.toString().padLeft(2, '0')}月份'),
+                Column(
+                  children: <Widget>[
+                    Text("本月充值 ￥ 2222.00"),
+                    Text("本月消费 ￥ 1290.00"),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -68,6 +73,7 @@ class _DetailListPageState extends State<DetailListPage> {
                 EdgeInsets.only(left: 18, right: 18, top: 0, bottom: 0),
             dense: false,
             selected: false,
+            isThreeLine: true,
             leading: Icon(
               AntDesign.pay_circle1,
               size: 35,

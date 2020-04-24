@@ -42,12 +42,12 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
       keyboardType: TextInputType.text,
       autofocus: false,
       initialValue: '',
-      obscureText: true,
+      obscureText: false,
       decoration: InputDecoration(
         icon: Icon(FontAwesome.rmb),
         hintText: '',
         contentPadding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-        counterStyle: TextStyle(fontSize: 22),
+        counterStyle: TextStyle(fontSize: 32),
         border: OutlineInputBorder(borderSide: BorderSide.none),
       ),
     );
