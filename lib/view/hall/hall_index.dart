@@ -54,10 +54,11 @@ class _HallIndexPageState extends State<HallIndexPage>
           delegate:
               SliverChildBuilderDelegate(_buildListCardItem, childCount: 20),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 1.65),
+            crossAxisCount: 2,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+            childAspectRatio: 1.4,
+          ),
         ),
       ],
     );
@@ -176,19 +177,27 @@ class _HallIndexPageState extends State<HallIndexPage>
         );
       },
       child: Card(
-        //elevation: 20.0,
+        
+        elevation: 00.0,
         child: Stack(
           children: <Widget>[
-            Image.asset(
-              Random().nextInt(3) % 2 > 0
-                  ? 'assets/girl/1.jpg'
-                  : 'assets/girl/2.jpg',
-              height: (MediaQuery.of(context).size.width / 2 - 5) / 16 * 9,
-              width: MediaQuery.of(context).size.width / 2 - 5,
-              fit: BoxFit.cover,
+            Column(
+              children: <Widget>[
+                Image.asset(
+                  Random().nextInt(3) % 2 > 0
+                      ? 'assets/girl/1.jpg'
+                      : 'assets/girl/2.jpg',
+                  height: (MediaQuery.of(context).size.width / 2 - 5) / 16 * 9,
+                  width: MediaQuery.of(context).size.width / 2 - 5,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  child: Text('宝贝很乖很乖哟'),
+                ),
+              ],
             ),
             Positioned(
-              bottom: 5,
+              bottom: 25,
               left: 10,
               child: Text(
                 "22人关注",
@@ -200,10 +209,10 @@ class _HallIndexPageState extends State<HallIndexPage>
               ),
             ),
             Positioned(
-              bottom: 5,
+              bottom: 25,
               right: 10,
               child: Text(
-                "5￥/分",
+                "￥5/分钟",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,
