@@ -1,3 +1,4 @@
+import 'package:flui/flui.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,10 @@ class _MineIndexPageState extends State<MineIndexPage> {
               color: Theme.of(context).primaryColor,
               height: 180.0,
               child: RawMaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Routes.router.navigateTo(context, Routes.mineIndexMySetting,
+                      clearStack: false, transition: TransitionType.cupertino);
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[

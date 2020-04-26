@@ -177,7 +177,7 @@ class _HallIndexPageState extends State<HallIndexPage>
         );
       },
       child: Card(
-        
+        clipBehavior: Clip.hardEdge,
         elevation: 00.0,
         child: Stack(
           children: <Widget>[
