@@ -5,6 +5,8 @@ import './route_handlers.dart';
 
 class Routes {
   static Router router;
+  static String comPhotoView = '/com/photoview';
+
   static String welcomePage = '/';
   static String loginPage = '/login';
 
@@ -12,6 +14,7 @@ class Routes {
 
   static String chatlogindex = '/chatlog/index';
   static String chatWindowPage = '/chatlog/chatwindow';
+  static String chatVideoCall = '/chatlog/chatVideoCall';
 
   static String hallindex = '/hall/index';
   static String hallAnchorDetailsPage = '/hall/hallAnchorDetailsPage';
@@ -22,7 +25,7 @@ class Routes {
   static String mineIndexCashWithdrawal = '/mine/balance/cashWithdrawal';
   static String mineIndexDetailList = '/mine/balance/detaillist';
   static String mineIndexVideoSetting = '/mine/VideoSetting';
-  static String mineIndexMySetting='/mine/mysetting';
+  static String mineIndexMySetting = '/mine/mysetting';
 
 //  static String courseDetail = "/course/detail/:id/:saletype/:coursename";
 
@@ -33,11 +36,15 @@ class Routes {
     });
 
     router.define(welcomePage, handler: welcomePageHandler);
+
+    router.define(comPhotoView, handler: comPhotoViewPageHandler);
+
     router.define(loginPage, handler: loginPageHandler);
     router.define(homeMainPage, handler: homeMainPageHandler);
 
     router.define(chatlogindex, handler: chatlogIndexPageHandler);
     router.define(chatWindowPage, handler: chatWindowPageHandler);
+    router.define(chatVideoCall, handler: chatVideoCallPageHandler);
 
     router.define(hallindex, handler: hallindexPageHandler);
     router.define(hallAnchorDetailsPage,
@@ -46,9 +53,11 @@ class Routes {
     router.define(mineindex, handler: mineindexPageHandler);
     router.define(mineIndexBalance, handler: mineIndexBalancePageHandler);
     router.define(mineIndexRecharge, handler: mineIndexRechargePageHandler);
-    router.define(mineIndexCashWithdrawal, handler: mineIndexCashWithdrawalPageHandler);
+    router.define(mineIndexCashWithdrawal,
+        handler: mineIndexCashWithdrawalPageHandler);
     router.define(mineIndexDetailList, handler: mineIndexDetailListPageHandler);
-    router.define(mineIndexVideoSetting, handler: mineIndexVideoSettingPageHandler);
+    router.define(mineIndexVideoSetting,
+        handler: mineIndexVideoSettingPageHandler);
     router.define(mineIndexMySetting, handler: mineIndexMySettingPageHandler);
     Routes.router = router;
   }

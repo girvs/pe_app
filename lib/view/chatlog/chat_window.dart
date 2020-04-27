@@ -1,4 +1,7 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:pe_app/core/route/routes.dart';
 import 'package:pe_app/view/components/chatlog/message_item.dart';
 import 'package:pe_app/view/components/icon_word_button.dart';
 
@@ -14,9 +17,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
     Message("还没有起来了没有了？", true, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
     Message(
-        "还没有起来了没有了？还没有起来了没有了？还没来了没有还没有起来了没有了？还没有起来了没有了？",
-        true,
-        DateTime.now()),
+        "还没有起来了没有了？还没有起来了没有了？还没来了没有还没有起来了没有了？还没有起来了没有了？", true, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
     Message("还没有起来了没有了？", false, DateTime.now()),
     Message("还没有起来了没有了？", true, DateTime.now()),
@@ -113,7 +114,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
                   decoration: InputDecoration(
                     hintText: '请输入消息',
                     contentPadding: EdgeInsets.fromLTRB(15.0, -5.0, 5.0, -5.0),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
                   ),
                 ),
               ),
@@ -149,7 +151,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
           )
         : Container(
             //margin: EdgeInsets.only(bottom: 8),
-          );
+            );
   }
 
   _getWidgetList() {
@@ -160,7 +162,9 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
           Icons.perm_media,
           size: 32,
         ),
-        func: () {},
+        func: () async {
+          var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+        },
       ),
       IconWordButton(
         text: "相机",
@@ -168,7 +172,9 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
           Icons.camera_enhance,
           size: 32,
         ),
-        func: () {},
+        func: () async {
+          var image = await ImagePicker.pickImage(source: ImageSource.camera);
+        },
       ),
       IconWordButton(
         text: "视频通话",
@@ -176,7 +182,14 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
           Icons.videocam,
           size: 32,
         ),
-        func: () {},
+        func: () {
+          Routes.router.navigateTo(
+            context,
+            Routes.chatVideoCall,
+            clearStack: false,
+            transition: TransitionType.cupertino,
+          );
+        },
       ),
       SizedBox(
         width: 50,

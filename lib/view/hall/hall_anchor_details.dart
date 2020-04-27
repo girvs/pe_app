@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pe_app/view/components/hall/SliverCustomHeaderDelegate.dart';
+import 'package:pe_app/view/components/photo_vew.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
 class HallAnchorDetailsPage extends StatefulWidget {
@@ -41,6 +42,13 @@ class _HallAnchorDetailsPageState extends State<HallAnchorDetailsPage> {
 }
 
 class FilmContent extends StatelessWidget {
+  List<String> images = [
+    "http://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg",
+    "http://5b0988e595225.cdn.sohucs.com/images/20181003/0f8307fe3de6468d8b51c53b276e9e1b.jpeg",
+    "http://up.svwsy.com/uploads/allimg/aebiauqrqdb.jpg",
+    "http://ztd00.photos.bdimg.com/ztd/w=700;q=50/sign=eefb9ac172899e51788e3814729ca80e/3b87e950352ac65ccb392f4ff2f2b21193138aca.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -186,39 +194,63 @@ class FilmContent extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
           padding: EdgeInsets.only(top: 10, bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                child: Text("照片"),
-                margin: EdgeInsets.all(10),
-              ),
-              Image.network(
-                  "http://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg",
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.fill),
-              Image.network(
-                  "http://5b0988e595225.cdn.sohucs.com/images/20181003/0f8307fe3de6468d8b51c53b276e9e1b.jpeg",
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.fill),
-              Image.network(
-                  "http://up.svwsy.com/uploads/allimg/aebiauqrqdb.jpg",
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.fill),
-              Image.network(
-                  "http://ztd00.photos.bdimg.com/ztd/w=700;q=50/sign=eefb9ac172899e51788e3814729ca80e/3b87e950352ac65ccb392f4ff2f2b21193138aca.jpg",
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.fill),
-            ],
+          child: InkWell(
+            onTap: () {
+              //FadeRoute是自定义的切换过度动画（渐隐渐现） 如果不需要 可以使用默认的MaterialPageRoute
+              Navigator.of(context).push(new FadeRoute(
+                  page: PhotoViewPage(
+                images: images, //传入图片list
+                index: 2, //传入当前点击的图片的index
+                heroTag: '', //传入当前点击的图片的hero tag （可选）
+              )));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Text("照片"),
+                  margin: EdgeInsets.all(10),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Image.network(
+                    "http://b-ssl.duitang.com/uploads/item/201608/27/20160827172726_GJfX2.jpeg",
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill),
+                SizedBox(
+                  width: 5,
+                ),
+                Image.network(
+                    "http://5b0988e595225.cdn.sohucs.com/images/20181003/0f8307fe3de6468d8b51c53b276e9e1b.jpeg",
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill),
+                SizedBox(
+                  width: 5,
+                ),
+                Image.network(
+                    "http://up.svwsy.com/uploads/allimg/aebiauqrqdb.jpg",
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill),
+                SizedBox(
+                  width: 5,
+                ),
+                Image.network(
+                    "http://ztd00.photos.bdimg.com/ztd/w=700;q=50/sign=eefb9ac172899e51788e3814729ca80e/3b87e950352ac65ccb392f4ff2f2b21193138aca.jpg",
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill),
+              ],
+            ),
           ),
         ),
         SpaceSizeBox(
           height: 20,
         ),
+        Divider(height: 1),
         InkWell(
           child: Container(
             color: Theme.of(context).primaryColor,
@@ -234,7 +266,7 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(height: 0,),
+        Divider(height: 1),
         InkWell(
           child: Container(
             color: Theme.of(context).primaryColor,
@@ -250,7 +282,12 @@ class FilmContent extends StatelessWidget {
             ),
           ),
         ),
-        Divider(height: 1,),
+        Divider(
+          height: 1,
+        ),
+        SpaceSizeBox(
+          height: 200,
+        ),
       ],
     );
   }

@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:pe_app/view/account/login.dart';
 import 'package:pe_app/view/chatlog/chat_log_index.dart';
 import 'package:pe_app/view/chatlog/chat_window.dart';
+import 'package:pe_app/view/components/photo_vew.dart';
 import 'package:pe_app/view/hall/hall_anchor_details.dart';
 import 'package:pe_app/view/hall/hall_index.dart';
 import 'package:pe_app/view/home_main.dart';
@@ -22,6 +23,7 @@ import 'package:pe_app/view/mine/my_setting.dart';
 import 'package:pe_app/view/mine/recharge.dart';
 import 'package:pe_app/view/mine/video_setting.dart';
 import 'package:pe_app/view/welcome.dart';
+import 'package:pe_app/view/chatlog/chat_video_call.dart';
 
 // var loginHandler = new Handler(
 //     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -30,6 +32,11 @@ import 'package:pe_app/view/welcome.dart';
 var welcomePageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return new WelComePage();
+});
+
+var comPhotoViewPageHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return new PhotoViewPage();
 });
 
 var loginPageHandler = new Handler(
@@ -52,6 +59,13 @@ var chatWindowPageHandler = new Handler(
   return ChatWindowPage();
 });
 
+var chatVideoCallPageHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  var selfUserId = params['selfUserId']?.first;
+  var callUserId = params['callUserId']?.first;
+  return ChatVideoCallPage(selfUserId, callUserId);
+});
+
 var hallindexPageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
   return HallIndexPage();
@@ -68,40 +82,34 @@ var mineindexPageHandler = new Handler(
 });
 
 var mineIndexBalancePageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return BalancePage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return BalancePage();
+});
 
 var mineIndexRechargePageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return RechargePage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return RechargePage();
+});
 
 var mineIndexCashWithdrawalPageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return CashWithdrawalPage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return CashWithdrawalPage();
+});
 
 var mineIndexDetailListPageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return DetailListPage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return DetailListPage();
+});
 
 var mineIndexVideoSettingPageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return VideoSettingPage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return VideoSettingPage();
+});
 
 var mineIndexMySettingPageHandler = new Handler(
-  handlerFunc: (BuildContext context,Map<String,List<String>> params){
-    return MySettingPage();
-  }
-);
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return MySettingPage();
+});
 // var informationDetailHandler = new Handler(
 //     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
 //   var id = params['id']?.first;

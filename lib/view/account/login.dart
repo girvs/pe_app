@@ -47,7 +47,8 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-          Routes.router.navigateTo(context, Routes.homeMainPage, clearStack: true);
+          Routes.router
+              .navigateTo(context, Routes.homeMainPage, clearStack: true);
         },
         padding: EdgeInsets.all(12),
         color: Colors.lightBlueAccent,
@@ -72,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: Center(
         child: ListView(
           shrinkWrap: true,
