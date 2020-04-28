@@ -2,6 +2,7 @@ import 'package:flui/flui.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:pe_app/core/route/routes.dart';
+import 'package:pe_app/style/theme.dart';
 
 class ChatLogIndexPage extends StatefulWidget {
   @override
@@ -111,7 +112,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
       ),
     );
     return Container(
-      color: Theme.of(context).primaryColor,
+      color: Constants.containerColor,
       child: listTitleWidget,
     );
   }

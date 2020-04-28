@@ -3,26 +3,30 @@ import 'package:flutter/material.dart';
 
 class Constants {
   static ThemeData lightTheme = ThemeData(
-    primaryColor: Color(0xfff9f9f9),
-    scaffoldBackgroundColor: Color(0xfff0f0f0),//0xfff9f9f9
+    //focusColor: Colors.black,
+    //primaryColor: Colors.black,
+    scaffoldBackgroundColor: Color(0xfff0f0f0), //0xfff9f9f9
     backgroundColor: Color(0xfff0f0f0),
-    bottomAppBarColor: Color(0xfff0f0f0),
+    //bottomAppBarColor: Color(0xfff0f0f0),
     appBarTheme: AppBarTheme(
       color: Color(0xfff0f0f0),
+      //textTheme: TextTheme(title: TextStyle(color: Colors.black))
     ),
   );
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Color(0xff191919),
-    backgroundColor: Color(0xff191919),
-    bottomAppBarColor: Color(0xff0c0c0c),
+    //primaryColor: Colors.white,
+    scaffoldBackgroundColor: Color(0xff0c0c0c),
+    backgroundColor: Color(0xff0c0c0c),
+    //bottomAppBarColor: Color(0xff0c0c0c),
+    dividerColor: Color(0xff292929),
     appBarTheme: AppBarTheme(
       color: Color(0xff0c0c0c),
     ),
   );
 
-  static Color getContainerColor(bool isDarkMode) {
-    return isDarkMode ? Color(0xff0f0f0f) : Colors.white;
-  }
+  static bool isDark = false;
+
+  static Color containerColor = isDark ? Color(0xff191919) : Colors.white;
 }

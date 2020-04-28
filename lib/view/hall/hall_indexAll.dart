@@ -134,7 +134,7 @@ class _HallIndexAllPageState extends State<HallIndexAllPage>
         crossAxisCount: 2,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        childAspectRatio: 1.4,
+        childAspectRatio: 1.38,
       ),
     );
     // return SliverGrid(

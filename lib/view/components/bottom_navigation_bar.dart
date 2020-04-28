@@ -32,11 +32,12 @@ class _BottomNavigationBarDefaultState
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     return BottomNavigationBar(
       //backgroundColor: Colors.transparent,
       //type: BottomNavigationBarType.fixed,
       // backgroundColor: Colors.white70,
-      //selectedItemColor: Colors.blueAccent,
+      selectedItemColor: isDark ? Colors.white : Colors.black,
       //unselectedItemColor: Colors.black,
       iconSize: 24,
       currentIndex: currentTab,

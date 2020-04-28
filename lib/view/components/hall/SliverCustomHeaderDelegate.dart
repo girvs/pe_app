@@ -48,21 +48,28 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     }
   }
 
-  Color makeStickyHeaderBgColor(shrinkOffset) {
+  Color makeStickyHeaderBgColor(shrinkOffset, bool isDark) {
     final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
         .clamp(0, 255)
         .toInt();
-    return Color.fromARGB(alpha, 255, 255, 255);
+    return isDark
+        ? Color.fromARGB(alpha, 0, 0, 0)
+        : Color.fromARGB(alpha, 255, 255, 255);
   }
 
-  Color makeStickyHeaderTextColor(shrinkOffset, isIcon) {
+  Color makeStickyHeaderTextColor(shrinkOffset, isIcon, bool isDark) {
     if (shrinkOffset <= 50) {
-      return isIcon ? Colors.white : Colors.transparent;
+      if (isDark)
+        return isIcon ? Colors.black : Colors.transparent;
+      else
+        return isIcon ? Colors.white : Colors.transparent;
     } else {
       final int alpha = (shrinkOffset / (this.maxExtent - this.minExtent) * 255)
           .clamp(0, 255)
           .toInt();
-      return Color.fromARGB(alpha, 0, 0, 0);
+      return isDark
+          ? Color.fromARGB(alpha, 255, 255, 255)
+          : Color.fromARGB(alpha, 0, 0, 0);
     }
   }
 
@@ -70,6 +77,8 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     this.updateStatusBarBrightness(shrinkOffset);
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Container(
       height: this.maxExtent,
       width: MediaQuery.of(context).size.width,
@@ -100,7 +109,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
             right: 0,
             top: 0,
             child: Container(
-              color: this.makeStickyHeaderBgColor(shrinkOffset),
+              color: this.makeStickyHeaderBgColor(shrinkOffset, isDark),
               child: SafeArea(
                 bottom: false,
                 child: Container(
@@ -108,31 +117,31 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      this.leftBtn != null ? this.leftBtn : SizedBox(),
-                      // IconButton(
-                      //   icon: Icon(
-                      //     Icons.arrow_back_ios,
-                      //   ),
-                      //   onPressed: () => Navigator.pop(context),
-                      // ),
+                      //this.leftBtn != null ? this.leftBtn : SizedBox(width: 44),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: this.makeStickyHeaderTextColor(
+                              shrinkOffset, true, isDark),
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
                       Text(
                         this.title,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: this
-                              .makeStickyHeaderTextColor(shrinkOffset, false),
+                          color: this.makeStickyHeaderTextColor(
+                              shrinkOffset, false, isDark),
                         ),
                       ),
-                      this.rightBtn != null ? this.rightBtn : SizedBox(width: 2,),
-                      // IconButton(
-                      //   icon: Icon(
-                      //     Icons.share,
-                      //     color: this
-                      //         .makeStickyHeaderTextColor(shrinkOffset, true),
-                      //   ),
-                      //   onPressed: () {},
-                      // ),
+                      // this.rightBtn != null
+                      //     ? this.rightBtn
+                      //     : Icon(Icons.space_bar),
+                      IconButton(
+                        icon: Icon(Icons.share, color: Colors.transparent),
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pe_app/style/theme.dart';
 
 class SyCell extends StatelessWidget {
   final Widget icon;
@@ -24,7 +25,7 @@ class SyCell extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(left:15.0,right: 15.0,top: 12,bottom: 12),
         decoration: BoxDecoration(
-          color: theme.primaryColor,
+          color:Constants.containerColor,
           border: isShowLine
               ? Border(bottom: BorderSide(color: theme.dividerColor,width: 0.5))
               : null,

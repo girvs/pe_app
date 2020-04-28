@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
     final forgotLabel = FlatButton(
       child: Text(
         '忘记密码?',
-        style: TextStyle(color: Colors.black54),
+        //style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {},
     );
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
     final registerLabel = FlatButton(
       child: Text(
         '没有注册',
-        style: TextStyle(color: Colors.black54),
+        //style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {},
     );

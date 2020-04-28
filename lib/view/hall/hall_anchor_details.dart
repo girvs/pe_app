@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pe_app/style/theme.dart';
 import 'package:pe_app/view/components/hall/SliverCustomHeaderDelegate.dart';
 import 'package:pe_app/view/components/photo_vew.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
@@ -55,7 +56,7 @@ class FilmContent extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.only(top: 10, left: 10, bottom: 10),
-          color: Theme.of(context).primaryColor,
+          color: Constants.containerColor,
           child: Row(
             children: <Widget>[
               Text(
@@ -110,7 +111,7 @@ class FilmContent extends StatelessWidget {
         ),
         Container(
           padding: EdgeInsets.only(top: 15, bottom: 15, left: 15),
-          color: Theme.of(context).primaryColor,
+          color: Constants.containerColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -169,7 +170,7 @@ class FilmContent extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(left: 20, top: 0),
           alignment: Alignment.centerLeft,
-          color: Theme.of(context).primaryColor,
+          color: Constants.containerColor,
           child: Text(
             "简介",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
@@ -178,7 +179,7 @@ class FilmContent extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(left: 20, top: 10, bottom: 15),
           alignment: Alignment.centerLeft,
-          color: Theme.of(context).primaryColor,
+          color: Constants.containerColor,
           child: Text(
             "    跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞的最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年，都给你。",
             style: TextStyle(
@@ -190,7 +191,7 @@ class FilmContent extends StatelessWidget {
           height: 20,
         ),
         Container(
-          color: Theme.of(context).primaryColor,
+          color: Constants.containerColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
           padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -200,7 +201,7 @@ class FilmContent extends StatelessWidget {
               Navigator.of(context).push(new FadeRoute(
                   page: PhotoViewPage(
                 images: images, //传入图片list
-                index: 2, //传入当前点击的图片的index
+                index: 0, //传入当前点击的图片的index
                 heroTag: '', //传入当前点击的图片的hero tag （可选）
               )));
             },
@@ -253,7 +254,7 @@ class FilmContent extends StatelessWidget {
         Divider(height: 1),
         InkWell(
           child: Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -269,7 +270,7 @@ class FilmContent extends StatelessWidget {
         Divider(height: 1),
         InkWell(
           child: Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, bottom: 10),

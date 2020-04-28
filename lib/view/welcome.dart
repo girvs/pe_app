@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pe_app/core/route/routes.dart';
+import 'package:pe_app/style/theme.dart';
 import 'package:toast/toast.dart';
 
 class WelComePage extends StatefulWidget {
@@ -36,6 +37,7 @@ class _WelComePageState extends State<WelComePage> {
 
   @override
   Widget build(BuildContext context) {
+    Constants.isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(

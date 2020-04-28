@@ -111,6 +111,7 @@ class _ChatVideoCallPageState extends State<ChatVideoCallPage> {
             child: Icon(
               icon,
               size: 35,
+              color: Colors.white,
             ),
             backgroundColor: backgroundColor,
           ),

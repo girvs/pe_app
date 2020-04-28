@@ -1,6 +1,7 @@
 import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:pe_app/style/theme.dart';
 import 'package:pe_app/view/components/hall/sycell.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
@@ -72,12 +73,12 @@ class _RechargePageState extends State<RechargePage> {
           ),
           Divider(height: 1),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择充值数量"),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             padding: EdgeInsets.all(20),
             child: GridView.builder(
               shrinkWrap: true,
@@ -136,12 +137,12 @@ class _RechargePageState extends State<RechargePage> {
           ),
           SpaceSizeBox(height: 10),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择支付方式"),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: Constants.containerColor,
             padding: EdgeInsets.only(top: 18, bottom: 18),
             child: Column(
               children: <Widget>[
@@ -218,7 +219,7 @@ class _RechargePageState extends State<RechargePage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: isDark ? Theme.of(context).primaryColor : selectColor,
+          color: isDark ? Constants.containerColor : selectColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment(0, 0),
           height: 50,
