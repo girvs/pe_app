@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pe_app/view/hall/hall_indexAll.dart';
 
 import '../chatlog/chat_log_index.dart';
 import '../hall/hall_index.dart';
@@ -17,7 +18,7 @@ class _BottomNavigationBarDefaultState
     extends State<BottomNavigationBarDefault> {
   int currentTab = 0;
   ChatLogIndexPage chatLogIndexPage = new ChatLogIndexPage();
-  HallIndexPage hallIndexPage = new HallIndexPage();
+  HallIndexAllPage hallIndexPage = new HallIndexAllPage();
   MineIndexPage mineIndexPage = new MineIndexPage();
 
   List<Widget> pages;
