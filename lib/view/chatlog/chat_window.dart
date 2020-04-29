@@ -25,16 +25,37 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
   ];
 
   bool isShowPanel = false;
+  bool isOpenKeyboard = false;
+
+  FocusNode _focusNode = FocusNode();
+  // _hideKeyBoardAndPanel() {
+  //   isShowPanel = false;
+  //   isOpenKeyboard = true;
+  //   FocusScope.of(context).requestFocus(FocusNode());
+  //   setState(() {});
+  // }
+
+  _showPanel() {
+    isShowPanel = !isShowPanel;
+    if (isShowPanel) {
+      FocusScope.of(context).requestFocus(FocusNode());
+    }
+    setState(() {});
+  }
 
   @override
   void initState() {
+    super.initState();
+
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         isShowPanel = false;
-        setState(() {});
+        isOpenKeyboard = true;
+      } else {
+        isOpenKeyboard = false;
       }
+      setState(() {});
     });
-    super.initState();
   }
 
   @override
@@ -45,101 +66,103 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
       appBar: AppBar(
         title: Text("张三"),
         centerTitle: true,
-        //backgroundColor: Colors.black38,
+        elevation: 0,
       ),
-      //backgroundColor: Colors.red,
       body: new Column(
         children: <Widget>[
           new Flexible(
             child: MessageItem(
               messages: messages,
-              isDarkMode: _isDarkMode,
               iWidth: width - 150,
               selfImageUrl: "assets/images/welcome.png",
               someImageUrl: "assets/images/welcome.png",
-              itemCallBack: _hideKeyBoardAndPanel,
+              //itemCallBack: _hideKeyBoardAndPanel,
             ),
           ),
-          _buildButtom(),
-          _buildActionPanel(),
+          // _buildButtom(),
+          // _buildActionPanel(),
           //SizedBox(height: 10,)
         ],
+      ),
+      bottomNavigationBar: _buildButtomTest(),
+    );
+  }
+
+  double calculationBottomBarHeight() {
+    double baseHeight = 60.0;
+    if (isOpenKeyboard && !isShowPanel) {
+      return baseHeight + MediaQuery.of(context).viewInsets.bottom;
+    } else if (isShowPanel && !isOpenKeyboard) {
+      return baseHeight + 120;
+    }
+    return 60;
+  }
+
+  BottomAppBar _buildButtomTest() {
+    //服务端设置如果没有开启支付功能，此处隐藏按钮
+    return BottomAppBar(
+      elevation: .0,
+      child: Container(
+        height: calculationBottomBarHeight(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: buttomContainer(),
+        ),
       ),
     );
   }
 
-  bool get _isDarkMode {
-    return Theme.of(context).brightness == Brightness.dark;
-  }
-
-  FocusNode _focusNode = FocusNode();
-  _hideKeyBoardAndPanel() {
-    isShowPanel = false;
-    print(1);
-    FocusScope.of(context).requestFocus(FocusNode());
-    setState(() {});
-  }
-
-  _showPanel() {
-    isShowPanel = !isShowPanel;
-    print(isShowPanel);
+  List<Widget> buttomContainer() {
+    List<Widget> bcs = [_buildButtom()];
     if (isShowPanel) {
-      FocusScope.of(context).requestFocus(FocusNode());
+      bcs.add(_buildActionPanel());
     }
-    setState(() {});
+    return bcs;
   }
 
   Widget _buildButtom() {
     return Container(
       padding: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 0.0, left: 0.0),
-      // decoration: BoxDecoration(
-      //   border: Border.all(width: 0.5, color: Colors.black12),
-      // ),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //verticalDirection: VerticalDirection.up,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                width: 5,
+          SizedBox(
+            width: 5,
+          ),
+          Expanded(
+            child: TextFormField(
+              keyboardType: TextInputType.text,
+              focusNode: _focusNode,
+              autofocus: false,
+              initialValue: '',
+              decoration: InputDecoration(
+                hintText: '请输入消息',
+                contentPadding: EdgeInsets.fromLTRB(15.0, -5.0, 5.0, -5.0),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0)),
               ),
-              Expanded(
-                child: TextFormField(
-                  keyboardType: TextInputType.text,
-                  focusNode: _focusNode,
-                  autofocus: false,
-                  initialValue: '',
-                  decoration: InputDecoration(
-                    hintText: '请输入消息',
-                    contentPadding: EdgeInsets.fromLTRB(15.0, -5.0, 5.0, -5.0),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0)),
-                  ),
-                ),
+            ),
+          ),
+          Container(
+            //margin: EdgeInsets.only(bottom:10),
+            height: 50,
+            child: IconButton(
+              icon: Icon(
+                isShowPanel
+                    ? Icons.remove_circle_outline
+                    : Icons.add_circle_outline,
+                size: 35,
               ),
-              Container(
-                //margin: EdgeInsets.only(bottom:10),
-                height: 50,
-                child: IconButton(
-                  icon: Icon(
-                    isShowPanel
-                        ? Icons.remove_circle_outline
-                        : Icons.add_circle_outline,
-                    size: 35,
-                  ),
-                  onPressed: _showPanel,
-                ),
-              ),
-            ],
+              onPressed: _showPanel,
+            ),
           ),
         ],
       ),
     );
   }
 
-  _buildActionPanel() {
+  Widget _buildActionPanel() {
     return isShowPanel
         ? Container(
             padding: EdgeInsets.only(top: 15, bottom: 15),
@@ -149,12 +172,10 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
               children: _getWidgetList(),
             ),
           )
-        : Container(
-            //margin: EdgeInsets.only(bottom: 8),
-            );
+        : SizedBox();
   }
 
-  _getWidgetList() {
+  List<Widget> _getWidgetList() {
     List<Widget> ws = [
       IconWordButton(
         text: "照片",

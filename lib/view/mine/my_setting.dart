@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:pe_app/style/theme.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
 class MySettingPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _MySettingPageState extends State<MySettingPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.white, //Color.fromRGBO(246, 246, 246, 1),
+        color: Constants.containerColor, //Color.fromRGBO(246, 246, 246, 1),
         child: ListView(
           children: <Widget>[
             SpaceSizeBox(

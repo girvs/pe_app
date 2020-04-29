@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
+import 'package:pe_app/style/theme.dart';
 
 class Message {
   String text;
@@ -12,7 +13,6 @@ class Message {
 
 class MessageItem extends StatefulWidget {
   final List<Message> messages;
-  final bool isDarkMode;
   final double iWidth;
   final String selfImageUrl;
   final String someImageUrl;
@@ -20,7 +20,6 @@ class MessageItem extends StatefulWidget {
   const MessageItem(
       {Key key,
       this.messages,
-      this.isDarkMode,
       this.iWidth,
       this.selfImageUrl,
       this.someImageUrl,
@@ -55,26 +54,20 @@ class _MessageItemState extends State<MessageItem> {
   }
 
   _buildRow(Message message, double iWidth) {
-    final TextStyle textStyle = widget.isDarkMode
-        ? TextStyle(fontSize: 15, color: Colors.black)
-        : TextStyle(fontSize: 15);
+    final TextStyle textStyle = Constants.isDark
+        ? TextStyle(fontSize: 15, color: Colors.white)
+        : TextStyle(fontSize: 15,color: Colors.black);
     Row row = message.isSelf
         ? Row(
             mainAxisAlignment: MainAxisAlignment.end,
             verticalDirection: VerticalDirection.up,
             //crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              // BubbleWidget(
-              //           255.0,
-              //           60,
-              //           Color.fromRGBO(160, 231, 90, 1),
-              //           BubbleArrowDirection.right,
-              //           child: Text('你好，我是萌新 BubbleWidget！',
-              //               style: TextStyle(
-              //                   color: Colors.white, fontSize: 16.0),),),
               FLBubble(
                   from: FLBubbleFrom.right,
-                  backgroundColor: Color.fromRGBO(160, 231, 90, 1),
+                  backgroundColor: Constants.isDark
+                      ? Constants.containerColor
+                      : Color.fromRGBO(160, 231, 90, 1),
                   child: Container(
                     constraints: BoxConstraints(maxWidth: iWidth),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
@@ -122,7 +115,7 @@ class _MessageItemState extends State<MessageItem> {
 //return row;
     return InkWell(
       child: row,
-      onTap: widget.itemCallBack,
+      //onTap: widget.itemCallBack,
     );
   }
 }

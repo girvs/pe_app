@@ -18,6 +18,7 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
           pinned: true,
           title: Text('消息'),
           centerTitle: true,
+          elevation: 0.0,
         ),
         SliverList(
           delegate: SliverChildListDelegate(_buildChatList()),
@@ -55,12 +56,9 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
       padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
       decoration: BoxDecoration(
         color: Theme.of(context).appBarTheme.color,
-
-        //border: Border.all(width: 0.5, color: Colors.black12),
-        //color: Theme.of(context).primaryColor,
       ),
       child: OutlineButton.icon(
-        color: Theme.of(context).textSelectionColor,
+        color: Constants.containerColor,
         onPressed: null,
         icon: Icon(
           Icons.search,

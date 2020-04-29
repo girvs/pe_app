@@ -37,7 +37,7 @@ class _WelComePageState extends State<WelComePage> {
 
   @override
   Widget build(BuildContext context) {
-    Constants.isDark = Theme.of(context).brightness == Brightness.dark;
+   // Constants.isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(

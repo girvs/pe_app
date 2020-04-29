@@ -13,10 +13,6 @@ class _HomeMainPageState extends State<HomeMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("私教"),
-      //   centerTitle: true,
-      // ),
       body: currentPage,
       bottomNavigationBar: BottomNavigationBarDefault(refreshPage),
     );

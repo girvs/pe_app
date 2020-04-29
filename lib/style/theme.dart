@@ -7,10 +7,15 @@ class Constants {
     //primaryColor: Colors.black,
     scaffoldBackgroundColor: Color(0xfff0f0f0), //0xfff9f9f9
     backgroundColor: Color(0xfff0f0f0),
-    //bottomAppBarColor: Color(0xfff0f0f0),
+    // bottomAppBarColor: Color(0xfff9f9f9),
     appBarTheme: AppBarTheme(
       color: Color(0xfff0f0f0),
-      //textTheme: TextTheme(title: TextStyle(color: Colors.black))
+      textTheme: TextTheme(
+        title: TextStyle(
+            color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400),
+      ),
+      iconTheme: IconThemeData(size: 22, color: Colors.black),
+      actionsIconTheme: IconThemeData(size: 22, color: Colors.black),
     ),
   );
 
@@ -26,7 +31,11 @@ class Constants {
     ),
   );
 
-  static bool isDark = false;
+  static bool a =
+      WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
+  //判断系统当前是否为暗黑模式
+  static bool isDark =
+      WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
 
-  static Color containerColor = isDark ? Color(0xff191919) : Colors.white;
+  static Color containerColor = isDark ? Color(0xff191919) : Color(0xfff4f4f4);
 }
