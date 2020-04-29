@@ -67,6 +67,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
         title: Text("张三"),
         centerTitle: true,
         elevation: 0,
+        bottom: PreferredSize(child: Divider(height: 1,),),
       ),
       body: new Column(
         children: <Widget>[

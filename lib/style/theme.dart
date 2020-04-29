@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 class Constants {
   static ThemeData lightTheme = ThemeData(
     //focusColor: Colors.black,
-    //primaryColor: Colors.black,
+    primaryColor: Colors.black,
     scaffoldBackgroundColor: Color(0xfff0f0f0), //0xfff9f9f9
     backgroundColor: Color(0xfff0f0f0),
-    // bottomAppBarColor: Color(0xfff9f9f9),
-    appBarTheme: AppBarTheme(
-      color: Color(0xfff0f0f0),
-      textTheme: TextTheme(
-        title: TextStyle(
-            color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400),
-      ),
-      iconTheme: IconThemeData(size: 22, color: Colors.black),
-      actionsIconTheme: IconThemeData(size: 22, color: Colors.black),
-    ),
+    bottomAppBarColor: Color(0xfff9f9f9),
+    //appBarTheme: AppBarTheme(
+      //color: Color(0xfff9f9f9),
+      // textTheme: TextTheme(
+      //   title: TextStyle(
+      //       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w600),
+      // ),
+      // iconTheme: IconThemeData(size: 22, color: Colors.black),
+      // actionsIconTheme: IconThemeData(size: 22, color: Colors.black),
+    //),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -24,10 +24,10 @@ class Constants {
     //primaryColor: Colors.white,
     scaffoldBackgroundColor: Color(0xff0c0c0c),
     backgroundColor: Color(0xff0c0c0c),
-    //bottomAppBarColor: Color(0xff0c0c0c),
+    bottomAppBarColor: Colors.black,
     dividerColor: Color(0xff292929),
     appBarTheme: AppBarTheme(
-      color: Color(0xff0c0c0c),
+      color: Colors.black//Color(0xff0c0c0c),
     ),
   );
 

@@ -1,11 +1,6 @@
-import 'dart:convert';
 
-import 'package:azlistview/azlistview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:lpinyin/lpinyin.dart';
-import 'package:pe_app/models/city_model.dart';
 import 'package:pe_app/view/addressbook/my_friend_list.dart';
 
 class AddressBookIndexPage extends StatefulWidget {
@@ -33,6 +28,7 @@ class _AddressBookIndexPageState extends State<AddressBookIndexPage> {
           Container(
             width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(18),
+            color: Theme.of(context).appBarTheme.color,
             child: CupertinoSegmentedControl(
               children: {
                 '好友列表': Text('好友列表'),
