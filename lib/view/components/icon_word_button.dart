@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pe_app/style/theme.dart';
 
 class IconWordButton extends StatelessWidget {
   final String text;
@@ -16,10 +17,11 @@ class IconWordButton extends StatelessWidget {
             width: 60,
             height: 60,
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black12, width: 1), //边框
+              color: Constants.containerColor,
+              //border: Border.all(color: Colors.black12, width: 1), //边框
               borderRadius: BorderRadius.all(
                 //圆角
-                Radius.circular(8.0),
+                Radius.circular(15.0),
               ),
             ),
             child: icon,

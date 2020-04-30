@@ -54,9 +54,6 @@ class _MessageItemState extends State<MessageItem> {
   }
 
   _buildRow(Message message, double iWidth) {
-    final TextStyle textStyle = Constants.isDark
-        ? TextStyle(fontSize: 15, color: Colors.white)
-        : TextStyle(fontSize: 15,color: Colors.black);
     Row row = message.isSelf
         ? Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -65,13 +62,13 @@ class _MessageItemState extends State<MessageItem> {
             children: <Widget>[
               FLBubble(
                   from: FLBubbleFrom.right,
-                  backgroundColor: Constants.isDark
-                      ? Constants.containerColor
-                      : Color.fromRGBO(160, 231, 90, 1),
+                  backgroundColor: Color.fromRGBO(160, 231, 90, 1),
                   child: Container(
                     constraints: BoxConstraints(maxWidth: iWidth),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                    child: Text(message.text, style: textStyle, softWrap: true),
+                    child: Text(message.text,
+                        style: TextStyle(fontSize: 15, color: Colors.black),
+                        softWrap: true),
                   )),
               FLImage(
                 borderRadius: BorderRadius.circular(5),
@@ -104,11 +101,18 @@ class _MessageItemState extends State<MessageItem> {
               ),
               FLBubble(
                   from: FLBubbleFrom.left,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Constants.isDark
+                      ? Constants.containerColor
+                      : Colors.white,
                   child: Container(
                     constraints: BoxConstraints(maxWidth: iWidth),
                     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 3),
-                    child: Text(message.text, style: textStyle, softWrap: true),
+                    child: Text(message.text,
+                        style: TextStyle(
+                            fontSize: 15,
+                            color:
+                                Constants.isDark ? Colors.white : Colors.black),
+                        softWrap: true),
                   ))
             ],
           );

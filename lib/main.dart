@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'core/configuration/app_config.dart';
 import 'core/configuration/app_setting.dart';
 import 'core/route/routes.dart';
@@ -13,7 +11,7 @@ void main() {
 
   runApp(
     new MaterialApp(
-      themeMode: Util.themeMode,
+      themeMode: ThemeMode.dark,
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
       debugShowCheckedModeBanner: false, //
@@ -22,10 +20,10 @@ void main() {
       onGenerateRoute: Routes.router.generator,
     ),
   );
-  if (Platform.isAndroid) {
-    SystemUiOverlayStyle systemUiOverlayStyle =
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  }
+  // if (Platform.isAndroid) {
+  //   SystemUiOverlayStyle systemUiOverlayStyle =
+  //       SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  //   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  // }
   Util.initialize();
 }

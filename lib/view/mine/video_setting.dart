@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pe_app/view/addressbook/my_friend_list.dart';
 
 class VideoSettingPage extends StatefulWidget {
   @override
@@ -8,8 +9,12 @@ class VideoSettingPage extends StatefulWidget {
 class _VideoSettingPageState extends State<VideoSettingPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverToBoxAdapter(
+          child: MyFriendListPage(),
+        )
+      ],
     );
   }
 }

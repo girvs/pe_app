@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pe_app/view/addressbook/addressbookIndex.dart';
 import 'package:pe_app/view/hall/hall_indexAll.dart';
 
@@ -36,11 +37,11 @@ class _BottomNavigationBarDefaultState
   Widget build(BuildContext context) {
     bool isDark = Theme.of(context).brightness == Brightness.dark;
     return BottomNavigationBar(
-      backgroundColor: Theme.of(context).appBarTheme.color,
+      backgroundColor: Theme.of(context).bottomAppBarColor,
       type: BottomNavigationBarType.fixed,
       // backgroundColor: Colors.white70,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: isDark ? Colors.white : Colors.black,
+      selectedItemColor: Colors.blueAccent,
+      // unselectedItemColor: isDark ? Colors.white : Colors.black,
       iconSize: 24,
       currentIndex: currentTab,
       onTap: (int numTab) {
@@ -54,11 +55,11 @@ class _BottomNavigationBarDefaultState
             title: new Text("聊天")),
         new BottomNavigationBarItem(
             //numTab 2
-            icon: new Icon(Icons.supervisor_account),
+            icon: new Icon(AntDesign.team),
             title: new Text("通讯录")),
         new BottomNavigationBarItem(
             //numTab 2
-            icon: new Icon(Icons.audiotrack),
+            icon: new Icon(Icons.tv),
             title: new Text("大厅")),
         new BottomNavigationBarItem(
             //numTab 2

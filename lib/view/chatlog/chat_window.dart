@@ -1,5 +1,7 @@
 import 'package:fluro/fluro.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pe_app/core/route/routes.dart';
 import 'package:pe_app/view/components/chatlog/message_item.dart';
@@ -67,7 +69,11 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
         title: Text("张三"),
         centerTitle: true,
         elevation: 0,
-        bottom: PreferredSize(child: Divider(height: 1,),),
+        bottom: PreferredSize(
+          child: Divider(
+            height: 1,
+          ),
+        ),
       ),
       body: new Column(
         children: <Widget>[
@@ -141,7 +147,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
                 hintText: '请输入消息',
                 contentPadding: EdgeInsets.fromLTRB(15.0, -5.0, 5.0, -5.0),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0)),
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide.none),
               ),
             ),
           ),
@@ -164,16 +171,14 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
   }
 
   Widget _buildActionPanel() {
-    return isShowPanel
-        ? Container(
-            padding: EdgeInsets.only(top: 15, bottom: 15),
-            margin: EdgeInsets.only(bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _getWidgetList(),
-            ),
-          )
-        : SizedBox();
+    return Container(
+      padding: EdgeInsets.only(top: 15, bottom: 15),
+      margin: EdgeInsets.only(bottom: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: _getWidgetList(),
+      ),
+    );
   }
 
   List<Widget> _getWidgetList() {
@@ -181,8 +186,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
       IconWordButton(
         text: "照片",
         icon: Icon(
-          Icons.perm_media,
-          size: 32,
+          FontAwesome.photo,
+          size: 21,
         ),
         func: () async {
           var image = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -191,8 +196,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
       IconWordButton(
         text: "相机",
         icon: Icon(
-          Icons.camera_enhance,
-          size: 32,
+          FontAwesome.camera,
+          size: 21,
         ),
         func: () async {
           var image = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -201,8 +206,8 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
       IconWordButton(
         text: "视频通话",
         icon: Icon(
-          Icons.videocam,
-          size: 32,
+          CupertinoIcons.video_camera_solid,
+          size: 24,
         ),
         func: () {
           Routes.router.navigateTo(
@@ -214,7 +219,7 @@ class _ChatWindowPageState extends State<ChatWindowPage> {
         },
       ),
       SizedBox(
-        width: 50,
+        width: 60,
       )
     ];
     return ws;

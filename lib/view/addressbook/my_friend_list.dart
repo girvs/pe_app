@@ -68,15 +68,13 @@ class _MyFriendListPageState extends State<MyFriendListPage> {
         Container(
           height: _suspensionHeight.toDouble(),
           padding: const EdgeInsets.only(left: 25.0),
-          color: isHeader
-              ? Constants.containerColor
-              : Theme.of(context).scaffoldBackgroundColor,
+          color: Theme.of(context).backgroundColor,
           alignment: Alignment.centerLeft,
           child: Text(
-            '$susTag',
+            susTag,
             softWrap: false,
             style: TextStyle(
-              fontSize: 18.0,
+              fontSize: 16.0,
             ),
           ),
         ),
@@ -117,41 +115,51 @@ class _MyFriendListPageState extends State<MyFriendListPage> {
     );
   }
 
+  Widget buildTitle(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      color: Constants.containerColor,
+      child: ListTile(
+        title: Text("新的朋友"),
+        leading: FLAvatar(
+          image: Image.asset('assets/images/contacts/plugins_Friend.png',
+              scale: 2),
+          width: 35,
+          height: 35,
+          radius: 0, // if not specify, will be width / 2
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         Divider(height: 1),
-        Container(
-          color: Constants.containerColor,
-          child: ListTile(
-            title: Text("新的朋友"),
-            leading: Icon(
-              Icons.person_add,
-              size: 20.0,
-            ),
-          ),
-        ),
-        Divider(
-          height: 1,
-        ),
         Expanded(
           flex: 1,
           child: AzListView(
             data: _cityList,
+            shrinkWrap: true,
             itemBuilder: (context, model) => _buildListItem(model),
             suspensionWidget: _buildSusWidget(_suspensionTag, false),
             isUseRealIndex: true,
             itemHeight: _itemHeight,
             suspensionHeight: _suspensionHeight,
             onSusTagChanged: _onSusTagChanged,
+            header: AzListViewHeader(
+              tag: "★",
+              height: 55,
+              builder: buildTitle,
+            ),
             indexHintBuilder: (context, hint) {
               return Container(
                 alignment: Alignment.center,
                 width: 80.0,
                 height: 80.0,
                 decoration: BoxDecoration(
-                  color: Constants.containerColor,
+                  color: Constants.isDark ? Colors.white : Colors.black,
                   shape: BoxShape.circle,
                 ),
                 child: Text(hint,

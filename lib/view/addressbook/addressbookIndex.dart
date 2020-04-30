@@ -1,6 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pe_app/style/theme.dart';
+import 'package:pe_app/view/addressbook/attention_list.dart';
 import 'package:pe_app/view/addressbook/my_friend_list.dart';
 
 class AddressBookIndexPage extends StatefulWidget {
@@ -17,6 +18,8 @@ class _AddressBookIndexPageState extends State<AddressBookIndexPage> {
   String _fruit = '好友列表';
   @override
   Widget build(BuildContext context) {
+    bool isDark = Constants.isDark;
+    print(isDark);
     return Scaffold(
       appBar: AppBar(
         title: Text("通讯录"),
@@ -30,6 +33,9 @@ class _AddressBookIndexPageState extends State<AddressBookIndexPage> {
             padding: EdgeInsets.all(18),
             color: Theme.of(context).appBarTheme.color,
             child: CupertinoSegmentedControl(
+              unselectedColor: isDark ? Colors.white : Colors.black,
+              selectedColor: isDark ? Colors.black : Colors.white,
+              borderColor: isDark ? Colors.white : Colors.black,
               children: {
                 '好友列表': Text('好友列表'),
                 '关注列表': Text('关注列表'),
@@ -42,8 +48,9 @@ class _AddressBookIndexPageState extends State<AddressBookIndexPage> {
               },
             ),
           ),
+          Divider(height: 1),
           Expanded(
-            child: _fruit == '好友列表' ? MyFriendListPage() : MyFriendListPage(),
+            child: _fruit == '好友列表' ? MyFriendListPage() : AttentionPage(),
           ),
         ],
       ),

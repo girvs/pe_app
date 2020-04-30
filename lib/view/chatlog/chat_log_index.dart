@@ -51,21 +51,31 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
   }
 
   Widget _buildSearchList() {
+    final txtAlipayName = ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 40, maxWidth: 200),
+      child: TextFormField(
+        autovalidate: true,
+        keyboardType: TextInputType.text,
+        autofocus: false,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.search),
+          hintText: '搜索',
+          contentPadding: EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: BorderSide.none,
+          ),
+        ),
+      ),
+    );
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.fromLTRB(5, 0, 5, 0),
+      padding: EdgeInsets.fromLTRB(15, 8, 15, 8),
       decoration: BoxDecoration(
         color: Theme.of(context).appBarTheme.color,
       ),
-      child: OutlineButton.icon(
-        color: Constants.containerColor,
-        onPressed: null,
-        icon: Icon(
-          Icons.search,
-          size: 18,
-        ),
-        label: Text("搜索"),
-      ),
+      child: txtAlipayName,
     );
   }
 

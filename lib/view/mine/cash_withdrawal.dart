@@ -44,12 +44,14 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
       autofocus: false,
       initialValue: '',
       obscureText: false,
+      style: TextStyle(fontSize: 50),
       decoration: InputDecoration(
-        icon: Icon(FontAwesome.rmb),
-        hintText: '',
+        icon: Icon(FontAwesome.rmb,size: 35),
+        hintText: '0.00',
         contentPadding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
-        counterStyle: TextStyle(fontSize: 32),
         border: OutlineInputBorder(borderSide: BorderSide.none),
+        hintStyle: TextStyle(fontSize: 50),
+        fillColor: Constants.containerColor
       ),
     );
 
@@ -94,8 +96,22 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
           Divider(height: 1),
           Container(
             color: Constants.containerColor,
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 20),
-            child: Text("可用余额 0.00 元"),
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  color: Constants.containerColor,
+                  padding: EdgeInsets.only(top: 10, bottom: 10, left: 20),
+                  child: Text("可用余额 0.00 元"),
+                ),
+                Container(
+                  color: Constants.containerColor,
+                  padding: EdgeInsets.only(top: 10, bottom: 10, left: 20,right: 20),
+                  child: Text("全部提现"),
+                ),
+              ],
+            ),
           ),
           Divider(height: 1),
         ],

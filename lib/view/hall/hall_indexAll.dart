@@ -84,7 +84,7 @@ class _HallIndexAllPageState extends State<HallIndexAllPage>
           prefixIcon: Icon(Icons.search),
           hintText: '大厅搜索',
           contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),borderSide: BorderSide.none),
         ),
       ),
     );
