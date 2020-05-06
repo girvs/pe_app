@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:lpinyin/lpinyin.dart';
 import 'package:pe_app/models/city_model.dart';
 import 'package:pe_app/style/theme.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 
 class MyFriendListPage extends StatefulWidget {
   @override
@@ -91,8 +92,8 @@ class _MyFriendListPageState extends State<MyFriendListPage> {
           offstage: model.isShowSuspension != true,
           child: _buildSusWidget(susTag, true),
         ),
-        Container(
-          color: Constants.containerColor,
+        PeContainer(
+          //color: Constants.containerColor,
           child: ListTile(
             selected: false,
             dense: true,
@@ -116,9 +117,9 @@ class _MyFriendListPageState extends State<MyFriendListPage> {
   }
 
   Widget buildTitle(BuildContext context) {
-    return Container(
+    return PeContainer(
       width: MediaQuery.of(context).size.width,
-      color: Constants.containerColor,
+      //color: Constants.containerColor,
       child: ListTile(
         title: Text("新的朋友"),
         leading: FLAvatar(
@@ -159,7 +160,7 @@ class _MyFriendListPageState extends State<MyFriendListPage> {
                 width: 80.0,
                 height: 80.0,
                 decoration: BoxDecoration(
-                  color: Constants.isDark ? Colors.white : Colors.black,
+                  color: Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black,
                   shape: BoxShape.circle,
                 ),
                 child: Text(hint,

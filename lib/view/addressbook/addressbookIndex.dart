@@ -18,7 +18,7 @@ class _AddressBookIndexPageState extends State<AddressBookIndexPage> {
   String _fruit = '好友列表';
   @override
   Widget build(BuildContext context) {
-    bool isDark = Constants.isDark;
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
     print(isDark);
     return Scaffold(
       appBar: AppBar(

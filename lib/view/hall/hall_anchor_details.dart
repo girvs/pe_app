@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pe_app/style/theme.dart';
 import 'package:pe_app/view/components/hall/SliverCustomHeaderDelegate.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 import 'package:pe_app/view/components/photo_vew.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
@@ -54,9 +55,9 @@ class FilmContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
+        PeContainer(
           padding: EdgeInsets.only(top: 10, left: 10, bottom: 10),
-          color: Constants.containerColor,
+          //color: Constants.containerColor,
           child: Row(
             children: <Widget>[
               Text(
@@ -109,9 +110,9 @@ class FilmContent extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 1,
         ),
-        Container(
+        PeContainer(
           padding: EdgeInsets.only(top: 15, bottom: 15, left: 15),
-          color: Constants.containerColor,
+          //color: Constants.containerColor,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -167,19 +168,19 @@ class FilmContent extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        PeContainer(
           padding: EdgeInsets.only(left: 20, top: 0),
           alignment: Alignment.centerLeft,
-          color: Constants.containerColor,
+          //color: Constants.containerColor,
           child: Text(
             "简介",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
           ),
         ),
-        Container(
+        PeContainer(
           padding: EdgeInsets.only(left: 20, top: 10, bottom: 15),
           alignment: Alignment.centerLeft,
-          color: Constants.containerColor,
+          //color: Constants.containerColor,
           child: Text(
             "    跟我走吧，忐忑给你，情书给你，不眠的夜给你，四月的清晨给你，雪糕的第一口给你，海底捞的最后一颗鱼丸给你，手给你，怀抱给你，车票给你，跋涉给你，等待给你，钥匙给你，家给你，一腔孤勇和余生六十年，都给你。",
             style: TextStyle(
@@ -190,8 +191,8 @@ class FilmContent extends StatelessWidget {
         SpaceSizeBox(
           height: 20,
         ),
-        Container(
-          color: Constants.containerColor,
+        PeContainer(
+          //color: Constants.containerColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
           padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -253,8 +254,8 @@ class FilmContent extends StatelessWidget {
         ),
         Divider(height: 1),
         InkWell(
-          child: Container(
-            color: Constants.containerColor,
+          child: PeContainer(
+            //color: Constants.containerColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, bottom: 10),
@@ -269,8 +270,8 @@ class FilmContent extends StatelessWidget {
         ),
         Divider(height: 1),
         InkWell(
-          child: Container(
-            color: Constants.containerColor,
+          child: PeContainer(
+           // color: Constants.containerColor,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
             padding: EdgeInsets.only(top: 10, bottom: 10),

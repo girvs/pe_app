@@ -101,8 +101,9 @@ class _MessageItemState extends State<MessageItem> {
               ),
               FLBubble(
                   from: FLBubbleFrom.left,
-                  backgroundColor: Constants.isDark
-                      ? Constants.containerColor
+                  backgroundColor: Theme.of(context).brightness == Brightness.dark
+                      ? Constants.getCurrenThemeContainerColor(
+                          Theme.of(context).brightness)
                       : Colors.white,
                   child: Container(
                     constraints: BoxConstraints(maxWidth: iWidth),
@@ -111,7 +112,7 @@ class _MessageItemState extends State<MessageItem> {
                         style: TextStyle(
                             fontSize: 15,
                             color:
-                                Constants.isDark ? Colors.white : Colors.black),
+                                Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black),
                         softWrap: true),
                   ))
             ],

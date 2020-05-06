@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class Constants {
   static ThemeData lightTheme = ThemeData(
-
     //primaryColor: Colors.black,
     scaffoldBackgroundColor: Color.fromARGB(255, 237, 237, 237), //0xfff9f9f9
     backgroundColor: Color.fromARGB(255, 237, 237, 237),
@@ -52,8 +51,16 @@ class Constants {
   );
 
   //判断系统当前是否为暗黑模式
-  static bool isDark = WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
+  //static bool isDark =
+    //  WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
 
-  static Color containerColor =
-      isDark ? Color.fromARGB(255, 35, 35, 35) : Colors.white;
+  //static Color containerColor =
+  //isDark ? Color.fromARGB(255, 35, 35, 35) : Colors.white;
+
+  static Color lightContainerColor = Colors.white;
+  static Color darkContainerColor = Color.fromARGB(255, 35, 35, 35);
+
+  static Color getCurrenThemeContainerColor(Brightness b) {
+    return b == Brightness.dark ? darkContainerColor : lightContainerColor;
+  }
 }

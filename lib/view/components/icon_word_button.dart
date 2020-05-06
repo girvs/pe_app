@@ -10,6 +10,7 @@ class IconWordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Column(
       children: <Widget>[
         InkWell(
@@ -17,7 +18,7 @@ class IconWordButton extends StatelessWidget {
             width: 60,
             height: 60,
             decoration: BoxDecoration(
-              color: Constants.containerColor,
+              color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
               //border: Border.all(color: Colors.black12, width: 1), //边框
               borderRadius: BorderRadius.all(
                 //圆角

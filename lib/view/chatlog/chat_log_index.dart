@@ -3,6 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:pe_app/core/route/routes.dart';
 import 'package:pe_app/style/theme.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 
 class ChatLogIndexPage extends StatefulWidget {
   @override
@@ -119,8 +120,8 @@ class _ChatLogIndexPageState extends State<ChatLogIndexPage> {
         ],
       ),
     );
-    return Container(
-      color: Constants.containerColor,
+    return PeContainer(
+      //color: Constants.containerColor,
       child: listTitleWidget,
     );
   }

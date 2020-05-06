@@ -20,7 +20,7 @@ class _MySettingPageState extends State<MySettingPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: Constants.containerColor, //Color.fromRGBO(246, 246, 246, 1),
+        color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness), //Color.fromRGBO(246, 246, 246, 1),
         child: ListView(
           children: <Widget>[
             SpaceSizeBox(

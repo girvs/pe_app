@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pe_app/style/theme.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 
 class SyCell extends StatelessWidget {
   final Widget icon;
@@ -22,12 +23,13 @@ class SyCell extends StatelessWidget {
     ThemeData theme = Theme.of(context);
     return new InkWell(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.only(left:15.0,right: 15.0,top: 12,bottom: 12),
+      child: PeContainer(
+        padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 12, bottom: 12),
         decoration: BoxDecoration(
-          color:Constants.containerColor,
+          color: Constants.getCurrenThemeContainerColor(theme.brightness),
           border: isShowLine
-              ? Border(bottom: BorderSide(color: theme.dividerColor,width: 0.5))
+              ? Border(
+                  bottom: BorderSide(color: theme.dividerColor, width: 0.5))
               : null,
         ),
         child: Row(
@@ -41,7 +43,7 @@ class SyCell extends StatelessWidget {
                 : Container(),
             Expanded(
               child: Container(
-                padding: EdgeInsets.only(left:15),
+                padding: EdgeInsets.only(left: 15),
                 child: Text(
                   title,
                   style: TextStyle(fontSize: 14),

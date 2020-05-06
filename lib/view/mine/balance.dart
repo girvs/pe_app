@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pe_app/core/route/routes.dart';
 import 'package:pe_app/view/components/hall/sycell.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 
 class BalancePage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _BalancePageState extends State<BalancePage> {
       ),
       body: ListView(
         children: <Widget>[
-          Container(
+          PeContainer(
             color: Theme.of(context).appBarTheme.color,
             padding: EdgeInsets.only(left: 30, top: 10, bottom: 0),
             child: Text(

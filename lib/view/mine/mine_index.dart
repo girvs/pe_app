@@ -35,7 +35,7 @@ class _MineIndexPageState extends State<MineIndexPage> {
           ListView(
             children: <Widget>[
               Container(
-                color: Constants.containerColor,
+                color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
                 height: 180.0,
                 child: RawMaterialButton(
                   onPressed: () {

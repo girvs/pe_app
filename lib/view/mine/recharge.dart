@@ -73,12 +73,12 @@ class _RechargePageState extends State<RechargePage> {
           ),
           Divider(height: 1),
           Container(
-            color: Constants.containerColor,
+            color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择充值数量"),
           ),
           Container(
-            color: Constants.containerColor,
+            color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
             padding: EdgeInsets.all(20),
             child: GridView.builder(
               shrinkWrap: true,
@@ -137,12 +137,12 @@ class _RechargePageState extends State<RechargePage> {
           ),
           SpaceSizeBox(height: 10),
           Container(
-            color: Constants.containerColor,
+            color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("选择支付方式"),
           ),
           Container(
-            color: Constants.containerColor,
+            color: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness),
             padding: EdgeInsets.only(top: 18, bottom: 18),
             child: Column(
               children: <Widget>[
@@ -219,7 +219,7 @@ class _RechargePageState extends State<RechargePage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: isDark ? Constants.containerColor : selectColor,
+          color: isDark ? Constants.getCurrenThemeContainerColor(Theme.of(context).brightness) : selectColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment(0, 0),
           height: 50,

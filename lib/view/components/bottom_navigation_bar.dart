@@ -20,7 +20,7 @@ class _BottomNavigationBarDefaultState
     extends State<BottomNavigationBarDefault> {
   int currentTab = 0;
   ChatLogIndexPage chatLogIndexPage = new ChatLogIndexPage();
-  AddressBookIndexPage addressBookIndexPage = new AddressBookIndexPage();
+  //AddressBookIndexPage addressBookIndexPage = new AddressBookIndexPage();
   HallIndexAllPage hallIndexPage = new HallIndexAllPage();
   MineIndexPage mineIndexPage = new MineIndexPage();
 
@@ -30,7 +30,12 @@ class _BottomNavigationBarDefaultState
   @override
   void initState() {
     super.initState();
-    pages = [chatLogIndexPage,addressBookIndexPage, hallIndexPage, mineIndexPage];
+    pages = [
+      chatLogIndexPage,
+      //addressBookIndexPage,
+      hallIndexPage,
+      mineIndexPage,
+    ];
   }
 
   @override
@@ -53,10 +58,10 @@ class _BottomNavigationBarDefaultState
             //numTab 1
             icon: new Icon(CupertinoIcons.conversation_bubble),
             title: new Text("聊天")),
-        new BottomNavigationBarItem(
-            //numTab 2
-            icon: new Icon(AntDesign.team),
-            title: new Text("通讯录")),
+        // new BottomNavigationBarItem(
+        //     //numTab 2
+        //     icon: new Icon(AntDesign.team),
+        //     title: new Text("通讯录")),
         new BottomNavigationBarItem(
             //numTab 2
             icon: new Icon(Icons.tv),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pe_app/style/theme.dart';
 import 'package:pe_app/view/components/hall/sycell.dart';
+import 'package:pe_app/view/components/pe_container.dart';
 import 'package:pe_app/view/components/space_size_box.dart';
 
 class CashWithdrawalPage extends StatefulWidget {
@@ -51,7 +52,7 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
         contentPadding: EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
         border: OutlineInputBorder(borderSide: BorderSide.none),
         hintStyle: TextStyle(fontSize: 50),
-        fillColor: Constants.containerColor
+        fillColor: Constants.getCurrenThemeContainerColor(Theme.of(context).brightness)
       ),
     );
 
@@ -70,43 +71,43 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
             icon: Icon(AntDesign.alipay_square, size: 20, color: Colors.blue),
             title: '支付宝',
           ),
-          Container(
+          PeContainer(
             padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-            color: Constants.containerColor,
+            //color: Constants.containerColor,
             child: txtAliPayAccount,
           ),
-          Container(
+          PeContainer(
             padding: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
-            color: Constants.containerColor,
+            //color: Constants.containerColor,
             child: txtAlipayName,
           ),
           Divider(height: 1),
           SpaceSizeBox(height: 20),
           Divider(height: 1),
-          Container(
-            color: Constants.containerColor,
+          PeContainer(
+            //color: Constants.containerColor,
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: Text("提现金额"),
           ),
-          Container(
-            color: Constants.containerColor,
+          PeContainer(
+            //color: Constants.containerColor,
             padding: EdgeInsets.only(top: 18, bottom: 0, left: 20),
             child: txtBalance,
           ),
           Divider(height: 1),
-          Container(
-            color: Constants.containerColor,
+          PeContainer(
+            //color: Constants.containerColor,
             width: MediaQuery.of(context).size.width,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                  color: Constants.containerColor,
+                PeContainer(
+                  //color: Constants.containerColor,
                   padding: EdgeInsets.only(top: 10, bottom: 10, left: 20),
                   child: Text("可用余额 0.00 元"),
                 ),
-                Container(
-                  color: Constants.containerColor,
+                PeContainer(
+                  //color: Constants.containerColor,
                   padding: EdgeInsets.only(top: 10, bottom: 10, left: 20,right: 20),
                   child: Text("全部提现"),
                 ),
@@ -117,8 +118,8 @@ class _CashWithdrawalStatePage extends State<CashWithdrawalPage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        child: Container(
-          color: isDark ? Constants.containerColor : selectColor,
+        child: PeContainer(
+          //color: isDark ? Constants.containerColor : selectColor,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment(0, 0),
           height: 50,
